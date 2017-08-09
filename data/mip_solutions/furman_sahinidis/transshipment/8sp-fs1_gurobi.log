@@ -1,0 +1,200 @@
+
+Gurobi 6.5.2 (linux64) logging started Tue Jun  6 12:38:49 2017
+
+Changed value of parameter LogFile to test_cases/mip_solutions/furman_sahinidis/transshipment/8sp-fs1_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 108 rows, 272 columns and 729 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 5e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 5e+03]
+Found heuristic solution: objective 19
+Presolve removed 65 rows and 205 columns
+Presolve time: 0.00s
+Presolved: 43 rows, 67 columns, 154 nonzeros
+Variable types: 53 continuous, 14 integer (14 binary)
+
+Root relaxation: objective 9.405756e+00, 44 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    9.40576    0    6   19.00000    9.40576  50.5%     -    0s
+H    0     0                      13.0000000    9.40576  27.6%     -    0s
+     0     0   10.84360    0    3   13.00000   10.84360  16.6%     -    0s
+H    0     0                      11.0000000   10.84360  1.42%     -    0s
+
+Cutting planes:
+  Cover: 2
+  Implied bound: 3
+  Clique: 2
+  Flow cover: 1
+
+Explored 0 nodes (60 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 1.100000000000e+01, best bound 1.100000000000e+01, gap 0.0%
+
+Gurobi 6.5.2 (linux64) logging started Mon Jul 24 16:43:29 2017
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/transshipment/8sp-fs1_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 108 rows, 272 columns and 729 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 5e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 5e+03]
+Found heuristic solution: objective 19
+Presolve removed 65 rows and 205 columns
+Presolve time: 0.00s
+Presolved: 43 rows, 67 columns, 154 nonzeros
+Variable types: 53 continuous, 14 integer (14 binary)
+
+Root relaxation: objective 9.405756e+00, 44 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    9.40576    0    6   19.00000    9.40576  50.5%     -    0s
+H    0     0                      13.0000000    9.40576  27.6%     -    0s
+     0     0   10.84360    0    3   13.00000   10.84360  16.6%     -    0s
+H    0     0                      11.0000000   10.84360  1.42%     -    0s
+
+Cutting planes:
+  Cover: 2
+  Implied bound: 3
+  Clique: 2
+  Flow cover: 1
+
+Explored 0 nodes (60 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 1.100000000000e+01, best bound 1.100000000000e+01, gap 0.0%
+
+Gurobi 6.5.2 (linux64) logging started Mon Jul 24 16:45:07 2017
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/transshipment/8sp-fs1_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 108 rows, 272 columns and 729 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 5e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 5e+03]
+Found heuristic solution: objective 19
+Presolve removed 65 rows and 205 columns
+Presolve time: 0.00s
+Presolved: 43 rows, 67 columns, 154 nonzeros
+Variable types: 53 continuous, 14 integer (14 binary)
+
+Root relaxation: objective 9.405756e+00, 44 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    9.40576    0    6   19.00000    9.40576  50.5%     -    0s
+H    0     0                      13.0000000    9.40576  27.6%     -    0s
+     0     0   10.84360    0    3   13.00000   10.84360  16.6%     -    0s
+H    0     0                      11.0000000   10.84360  1.42%     -    0s
+
+Cutting planes:
+  Cover: 2
+  Implied bound: 3
+  Clique: 2
+  Flow cover: 1
+
+Explored 0 nodes (60 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 1.100000000000e+01, best bound 1.100000000000e+01, gap 0.0%
+
+Gurobi 6.5.2 (linux64) logging started Mon Jul 24 16:57:51 2017
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/transshipment/8sp-fs1_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 108 rows, 272 columns and 729 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 5e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 5e+03]
+Found heuristic solution: objective 19
+Presolve removed 65 rows and 205 columns
+Presolve time: 0.00s
+Presolved: 43 rows, 67 columns, 154 nonzeros
+Variable types: 53 continuous, 14 integer (14 binary)
+
+Root relaxation: objective 9.405756e+00, 44 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    9.40576    0    6   19.00000    9.40576  50.5%     -    0s
+H    0     0                      13.0000000    9.40576  27.6%     -    0s
+     0     0   10.84360    0    3   13.00000   10.84360  16.6%     -    0s
+H    0     0                      11.0000000   10.84360  1.42%     -    0s
+
+Cutting planes:
+  Cover: 2
+  Implied bound: 3
+  Clique: 2
+  Flow cover: 1
+
+Explored 0 nodes (60 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 1.100000000000e+01, best bound 1.100000000000e+01, gap 0.0%
+
+Gurobi 6.5.2 (linux64) logging started Wed Jul 26 11:54:41 2017
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/transshipment/8sp-fs1_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 108 rows, 272 columns and 729 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 5e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 5e+03]
+Found heuristic solution: objective 19
+Presolve removed 65 rows and 205 columns
+Presolve time: 0.00s
+Presolved: 43 rows, 67 columns, 154 nonzeros
+Variable types: 53 continuous, 14 integer (14 binary)
+
+Root relaxation: objective 9.405756e+00, 44 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    9.40576    0    6   19.00000    9.40576  50.5%     -    0s
+H    0     0                      13.0000000    9.40576  27.6%     -    0s
+     0     0   10.84360    0    3   13.00000   10.84360  16.6%     -    0s
+H    0     0                      11.0000000   10.84360  1.42%     -    0s
+
+Cutting planes:
+  Cover: 2
+  Implied bound: 3
+  Clique: 2
+  Flow cover: 1
+
+Explored 0 nodes (60 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 1.100000000000e+01, best bound 1.100000000000e+01, gap 0.0%

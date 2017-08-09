@@ -1,0 +1,44 @@
+from ..problem_classes.stream import *
+
+# This class represents an instance of the minimum number of matches problem
+# as an instance of a 2D-packing problem.
+
+class Packing:
+
+
+	# The main addition of the constructor is to convert a utility into a 2D-rectangle (stream)
+	def __init__(self, min_utility_inst,QHU,QCU):
+		
+		self.H = [] # list of hot streams and utilities which are considered as streams
+		self.C = [] # list of cold streams/utilities
+		
+		for i in min_utility_inst.HS:
+			self.H.append(Stream(i.Tin,i.Tout,i.FCp))
+			
+		for j in min_utility_inst.CS:
+			self.C.append(Stream(j.Tin+min_utility_inst.DTmin,j.Tout+min_utility_inst.DTmin,j.FCp))
+			
+		for i in min_utility_inst.HU:
+			self.H.append(Stream(i.Tin,i.Tout,sum(QHU[min_utility_inst.HU.index(i)])/(i.Tin-i.Tout)))
+			
+		for j in min_utility_inst.CU:
+			self.C.append(Stream(j.Tin+min_utility_inst.DTmin,j.Tout+min_utility_inst.DTmin,sum(QCU[min_utility_inst.CU.index(j)])/(j.Tout-j.Tin)))
+			
+		epsilon=1e-10
+			
+		for i in self.H:
+			if i.FCp<epsilon:
+				self.H.remove(i)
+				
+		for j in self.C:
+			if j.FCp<epsilon:
+				self.C.remove(j)
+
+
+	def __repr__(self):
+		s=''
+		for i in self.H:
+			s += 'Tin:' + str(i.Tin) + ', Tout:' + str(i.Tout) + ', FCp:' + str(i.FCp) + '\n'
+		for j in self.C:
+			s += 'Tin:' + str(j.Tin) + ', Tout:' + str(j.Tout) + ', FCp:' + str(j.FCp) + '\n'
+		return s

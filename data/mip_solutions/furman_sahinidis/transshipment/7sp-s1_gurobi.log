@@ -1,0 +1,96 @@
+
+Gurobi 6.5.2 (linux64) logging started Tue Jun  6 16:47:36 2017
+
+Changed value of parameter LogFile to test_cases/mip_solutions/furman_sahinidis/transshipment/7sp-s1_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 90 rows, 191 columns and 488 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 8e+04]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 8e+04]
+Found heuristic solution: objective 10
+Presolve removed 74 rows and 166 columns
+Presolve time: 0.00s
+Presolved: 16 rows, 25 columns, 63 nonzeros
+Variable types: 25 continuous, 0 integer (0 binary)
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 1.000000000000e+01, best bound 1.000000000000e+01, gap 0.0%
+
+Gurobi 6.5.2 (linux64) logging started Mon Jul 24 16:46:05 2017
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/transshipment/7sp-s1_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 90 rows, 191 columns and 488 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 8e+04]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 8e+04]
+Found heuristic solution: objective 10
+Presolve removed 74 rows and 166 columns
+Presolve time: 0.00s
+Presolved: 16 rows, 25 columns, 63 nonzeros
+Variable types: 25 continuous, 0 integer (0 binary)
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 1.000000000000e+01, best bound 1.000000000000e+01, gap 0.0%
+
+Gurobi 6.5.2 (linux64) logging started Mon Jul 24 16:58:59 2017
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/transshipment/7sp-s1_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 90 rows, 191 columns and 488 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 8e+04]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 8e+04]
+Found heuristic solution: objective 10
+Presolve removed 74 rows and 166 columns
+Presolve time: 0.00s
+Presolved: 16 rows, 25 columns, 63 nonzeros
+Variable types: 25 continuous, 0 integer (0 binary)
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 1.000000000000e+01, best bound 1.000000000000e+01, gap 0.0%
+
+Gurobi 6.5.2 (linux64) logging started Wed Jul 26 16:03:18 2017
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/transshipment/7sp-s1_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 90 rows, 191 columns and 488 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 8e+04]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 8e+04]
+Found heuristic solution: objective 10
+Presolve removed 74 rows and 166 columns
+Presolve time: 0.00s
+Presolved: 16 rows, 25 columns, 63 nonzeros
+Variable types: 25 continuous, 0 integer (0 binary)
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 1.000000000000e+01, best bound 1.000000000000e+01, gap 0.0%

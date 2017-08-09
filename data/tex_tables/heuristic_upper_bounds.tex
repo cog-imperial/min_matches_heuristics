@@ -1,0 +1,68 @@
+\begin{table} 
+\scriptsize 
+\begin{adjustbox}{center} 
+\begin{tabular}{|ccccccccccc|}
+\hline 
+\multirow{2}{*} {\textbf{Test Case}} & \multicolumn{3}{|c|} {\textbf{Relaxation Rounding}} & \multicolumn{2}{c|} {\textbf{Water Filling}} & \multicolumn{4}{c|} {\textbf{Greedy Packing}} & \multirow{2}{*} {\textbf{CPLEX}} \\ 
+\cline{2-10} & \multicolumn{1}{|c} {\textbf{LPR}} & \textbf{LRR} & \multicolumn{1}{c|} {\textbf{CRR}} & \textbf{WFG} & \multicolumn{1}{c|} {\textbf{WFM}} & \textbf{LHM} & \textbf{LFM} & \textbf{LHM-LP} & \multicolumn{1}{c|} {\textbf{SS}} &  \\ 
+\hline 
+\multicolumn{11}{|l|} {\textbf{Furman Sahinidis Test Set \cite{furman:2004}}} \\ 
+10sp-la1 & 16 & 17 & 16 & 16 & 15 & 15 & 13 & 14 & 13 & \textbf{12} \\ 
+10sp-ol1 & 18 & 18 & 17 & 18 & 18 & 19 & 17 & 15 & 16 & \textbf{14} \\ 
+10sp1 & 18 & 15 & 13 & 15 & 12 & 17 & 15 & 11 & 12 & \textbf{10} \\ 
+12sp1 & 16 & 17 & 13 & 14 & 15 & 18 & 17 & 13 & 13 & \textbf{12} \\ 
+14sp1 & 14 & 20 & 18 & 21 & 19 & 16 & 16 & 15 & 16 & \textbf{14} \\ 
+15sp-tkm & 20 & 22 & 20 & 23 & 25 & 21 & 22 & 19 & 21 & \textbf{19} \\ 
+20sp1 & 22 & 20 & 23 & 24 & 21 & 20 & 21 & 20 & 21 & \textbf{19*} \\ 
+22sp-ph & 27 & 28 & 28 & 27 & 28 & 37 & 27 & 27 & 27 & \textbf{26} \\ 
+22sp1 & 35 & 37 & 36 & 42 & 35 & 34 & 31 & 27 & 29 & \textbf{25*} \\ 
+23sp1 & 32 & 32 & 40 & 50 & 33 & 32 & 32 & 26 & 26 & \textbf{23*} \\ 
+28sp-as1 & 30 & 30 & 30 & 40 & 45 & 50 & 50 & 30 & 40 & \textbf{30} \\ 
+37sp-yfyv & 44 & 40 & 45 & 37 & 43 & 55 & 46 & 40 & 37 & \textbf{36} \\ 
+4sp1 & 5 & 5 & 5 & 5 & 5 & 5 & 5 & 5 & 5 & \textbf{5} \\ 
+6sp-cf1 & 6 & 6 & 6 & 6 & 7 & 6 & 6 & 6 & 6 & \textbf{6} \\ 
+6sp-gg1 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & \textbf{3} \\ 
+6sp1 & 8 & 7 & 9 & 9 & 6 & 6 & 6 & 6 & 6 & \textbf{6} \\ 
+7sp-cm1 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & \textbf{10} \\ 
+7sp-s1 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 & \textbf{10} \\ 
+7sp-torw1 & 11 & 12 & 10 & 12 & 12 & 12 & 11 & 11 & 10 & \textbf{10} \\ 
+7sp1 & 8 & 10 & 11 & 10 & 8 & 9 & 8 & 8 & 8 & \textbf{7} \\ 
+7sp2 & 7 & 7 & 7 & 9 & 9 & 7 & 7 & 7 & 7 & \textbf{7} \\ 
+7sp4 & 8 & 8 & 8 & 8 & 8 & 10 & 8 & 8 & 8 & \textbf{8} \\ 
+8sp-fs1 & 13 & 13 & 12 & 12 & 12 & 15 & 12 & 14 & 12 & \textbf{11} \\ 
+8sp1 & 11 & 11 & 10 & 14 & 9 & 10 & 10 & 10 & 10 & \textbf{9} \\ 
+9sp-al1 & 16 & 17 & 16 & 16 & 15 & 15 & 13 & 14 & 13 & \textbf{12} \\ 
+9sp-has1 & 15 & 14 & 15 & 15 & 16 & 15 & 14 & 13 & 15 & \textbf{13} \\ 
+\hline 
+\multicolumn{11}{|l|} {\textbf{Chen Grossman Miller Test Set \cite{minlp,chen:2015}}} \\ 
+balanced10 & 39 & 42 & 37 & 42 & 38 & 40 & 42 & 30 & 35 & \textbf{24} \\ 
+balanced12 & 42 & 48 & 53 & 48 & 45 & 48 & 41 & 37 & 41 & \textbf{28*} \\ 
+balanced15 & 60 & 69 & 71 & 63 & 61 & 82 & 62 & 43 & 51 & \textbf{37*} \\ 
+balanced5 & 18 & 17 & 18 & 18 & 19 & 20 & 18 & 15 & 19 & \textbf{14} \\ 
+balanced8 & 28 & 33 & 35 & 29 & 32 & 29 & 30 & 24 & 30 & \textbf{20} \\ 
+unbalanced10 & 38 & 46 & 43 & 46 & 43 & 42 & 35 & 29 & 33 & \textbf{25} \\ 
+unbalanced15 & 57 & 64 & 63 & 64 & 60 & 85 & 55 & 44 & 49 & \textbf{36*} \\ 
+unbalanced17 & 70 & 78 & 73 & 79 & 75 & 86 & 67 & 50 & 57 & \textbf{43*} \\ 
+unbalanced20 & 89 & 89 & 104 & 84 & 90 & 106 & 80 & 61 & 68 & \textbf{51*} \\ 
+unbalanced5 & 19 & 20 & 18 & 21 & 22 & 19 & 18 & 18 & 18 & \textbf{16} \\ 
+\hline 
+\multicolumn{11}{|l|} {\textbf{Grossman Random Test Set \cite{grossman:2017}}} \\ 
+balanced12\_random0 & 42 & 48 & 52 & 44 & 43 & 44 & 45 & 32 & 42 & \textbf{28*} \\ 
+balanced12\_random1 & 45 & 49 & 53 & 50 & 45 & 47 & 43 & 35 & 40 & \textbf{29*} \\ 
+balanced12\_random2 & 42 & 49 & 57 & 49 & 40 & 46 & 43 & 34 & 42 & \textbf{29*} \\ 
+balanced15\_random0 & 60 & 61 & 66 & 67 & 61 & 64 & 63 & 43 & 53 & \textbf{36*} \\ 
+balanced15\_random1 & 56 & 65 & 71 & 66 & 56 & 65 & 55 & 40 & 52 & \textbf{36*} \\ 
+balanced15\_random2 & 54 & 69 & 63 & 63 & 61 & 67 & 55 & 41 & 54 & \textbf{35*} \\ 
+unbalanced17\_random0 & 74 & 80 & 86 & 81 & 65 & 102 & 72 & 52 & 67 & \textbf{43*} \\ 
+unbalanced17\_random1 & 74 & 74 & 104 & 84 & 77 & 100 & 70 & 55 & 56 & \textbf{44*} \\ 
+unbalanced17\_random2 & 70 & 79 & 95 & 77 & 77 & 111 & 76 & 52 & 59 & \textbf{43*} \\ 
+unbalanced20\_random0 & 93 & 93 & 109 & 100 & 85 & 115 & 86 & 60 & 64 & \textbf{51*} \\ 
+unbalanced20\_random1 & 83 & 89 & 117 & 92 & 88 & 114 & 100 & 63 & 75 & \textbf{52*} \\ 
+unbalanced20\_random2 & 87 & 86 & 111 & 102 & 92 & 131 & 96 & 69 & 74 & \textbf{52*} \\ 
+\hline 
+\end{tabular} 
+\end{adjustbox} 
+\vspace*{-0.2cm} 
+\caption{Upper bounds computed by the heuristics and CPLEX 12.6.3 with time limit (i) 30min for Furman Sahinidis test set, (ii) 2h for Chen Grossman Miller test set, and (iii) 4h for Grossman random test set. An * indicates timeout. All heuristic results are available online in \cite{source_code}.} 
+\label{Table:Heuristic_Upper_Bounds} 
+\end{table} 

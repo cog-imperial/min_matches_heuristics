@@ -1,0 +1,156 @@
+
+Gurobi 6.5.2 (linux64) logging started Tue Jun  6 14:47:16 2017
+
+Changed value of parameter LogFile to test_cases/mip_solutions/furman_sahinidis/transshipment/22sp-ph_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 580 rows, 2966 columns and 8452 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 5e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 5e+03]
+Presolve removed 414 rows and 2616 columns
+Presolve time: 0.00s
+Presolved: 166 rows, 350 columns, 876 nonzeros
+Variable types: 284 continuous, 66 integer (66 binary)
+
+Root relaxation: objective 2.454465e+01, 349 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0   24.54465    0    7          -   24.54465      -     -    0s
+H    0     0                      27.0000000   24.54465  9.09%     -    0s
+     0     0   25.07277    0    9   27.00000   25.07277  7.14%     -    0s
+H    0     0                      26.0000000   25.07277  3.57%     -    0s
+
+Cutting planes:
+  Gomory: 2
+  Cover: 1
+  Implied bound: 1
+  Flow cover: 8
+
+Explored 0 nodes (426 simplex iterations) in 0.01 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 2.600000000000e+01, best bound 2.600000000000e+01, gap 0.0%
+
+Gurobi 6.5.2 (linux64) logging started Mon Jul 24 16:45:38 2017
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/transshipment/22sp-ph_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 580 rows, 2966 columns and 8452 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 5e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 5e+03]
+Presolve removed 414 rows and 2616 columns
+Presolve time: 0.00s
+Presolved: 166 rows, 350 columns, 876 nonzeros
+Variable types: 284 continuous, 66 integer (66 binary)
+
+Root relaxation: objective 2.454465e+01, 349 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0   24.54465    0    7          -   24.54465      -     -    0s
+H    0     0                      27.0000000   24.54465  9.09%     -    0s
+     0     0   25.07277    0    9   27.00000   25.07277  7.14%     -    0s
+H    0     0                      26.0000000   25.07277  3.57%     -    0s
+
+Cutting planes:
+  Gomory: 2
+  Cover: 1
+  Implied bound: 1
+  Flow cover: 8
+
+Explored 0 nodes (426 simplex iterations) in 0.02 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 2.600000000000e+01, best bound 2.600000000000e+01, gap 0.0%
+
+Gurobi 6.5.2 (linux64) logging started Mon Jul 24 16:58:28 2017
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/transshipment/22sp-ph_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 580 rows, 2966 columns and 8452 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 5e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 5e+03]
+Presolve removed 414 rows and 2616 columns
+Presolve time: 0.00s
+Presolved: 166 rows, 350 columns, 876 nonzeros
+Variable types: 284 continuous, 66 integer (66 binary)
+
+Root relaxation: objective 2.454465e+01, 349 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0   24.54465    0    7          -   24.54465      -     -    0s
+H    0     0                      27.0000000   24.54465  9.09%     -    0s
+     0     0   25.07277    0    9   27.00000   25.07277  7.14%     -    0s
+H    0     0                      26.0000000   25.07277  3.57%     -    0s
+
+Cutting planes:
+  Gomory: 2
+  Cover: 1
+  Implied bound: 1
+  Flow cover: 8
+
+Explored 0 nodes (426 simplex iterations) in 0.01 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 2.600000000000e+01, best bound 2.600000000000e+01, gap 0.0%
+
+Gurobi 6.5.2 (linux64) logging started Wed Jul 26 14:03:00 2017
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/transshipment/22sp-ph_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 580 rows, 2966 columns and 8452 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 5e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 5e+03]
+Presolve removed 414 rows and 2616 columns
+Presolve time: 0.01s
+Presolved: 166 rows, 350 columns, 876 nonzeros
+Variable types: 284 continuous, 66 integer (66 binary)
+
+Root relaxation: objective 2.454465e+01, 349 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0   24.54465    0    7          -   24.54465      -     -    0s
+H    0     0                      27.0000000   24.54465  9.09%     -    0s
+     0     0   25.07277    0    9   27.00000   25.07277  7.14%     -    0s
+H    0     0                      26.0000000   25.07277  3.57%     -    0s
+
+Cutting planes:
+  Gomory: 2
+  Cover: 1
+  Implied bound: 1
+  Flow cover: 8
+
+Explored 0 nodes (426 simplex iterations) in 0.02 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 2.600000000000e+01, best bound 2.600000000000e+01, gap 0.0%

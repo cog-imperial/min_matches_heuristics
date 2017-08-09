@@ -1,0 +1,261 @@
+
+Gurobi 6.5.2 (linux64) logging started Mon Jun 19 13:07:21 2017
+
+Changed value of parameter LogFile to test_cases/mip_solutions/chen_grossman_miller/transportation/unbalanced10_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 25674 rows, 52934 columns and 183736 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 1e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 8e+02]
+Presolve removed 25361 rows and 47912 columns
+Presolve time: 0.05s
+Presolved: 313 rows, 5022 columns, 14803 nonzeros
+Variable types: 4904 continuous, 118 integer (118 binary)
+
+Root relaxation: objective 1.781602e+01, 2241 iterations, 0.04 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0   17.81602    0   30          -   17.81602      -     -    0s
+H    0     0                      35.0000000   17.81602  49.1%     -    0s
+     0     0   18.76371    0   41   35.00000   18.76371  46.4%     -    0s
+     0     0   18.79779    0   43   35.00000   18.79779  46.3%     -    0s
+     0     0   19.23866    0   41   35.00000   19.23866  45.0%     -    0s
+     0     0   19.34179    0   44   35.00000   19.34179  44.7%     -    0s
+     0     0   20.64313    0   42   35.00000   20.64313  41.0%     -    0s
+     0     0   20.76833    0   42   35.00000   20.76833  40.7%     -    0s
+     0     0   21.11861    0   50   35.00000   21.11861  39.7%     -    0s
+     0     0   21.38749    0   48   35.00000   21.38749  38.9%     -    0s
+     0     0   21.50773    0   46   35.00000   21.50773  38.5%     -    1s
+     0     0   21.54111    0   35   35.00000   21.54111  38.5%     -    1s
+     0     0   21.54385    0   31   35.00000   21.54385  38.4%     -    1s
+     0     0   21.54401    0   31   35.00000   21.54401  38.4%     -    1s
+     0     0   21.57864    0   49   35.00000   21.57864  38.3%     -    1s
+H    0     0                      34.0000000   21.57864  36.5%     -    1s
+H    0     0                      33.0000000   21.57864  34.6%     -    1s
+H    0     0                      32.0000000   21.57864  32.6%     -    1s
+H    0     0                      31.0000000   21.57864  30.4%     -    1s
+     0     2   21.57895    0   49   31.00000   21.57895  30.4%     -    1s
+H   54    44                      30.0000000   21.65504  27.8%   301    2s
+H   56    46                      29.0000000   21.65504  25.3%   292    2s
+H   58    48                      28.0000000   21.65504  22.7%   289    2s
+H   60    48                      27.0000000   21.65504  19.8%   283    2s
+H  217   111                      26.0000000   21.82676  16.1%   170    4s
+*  254    61              27      25.0000000   21.99050  12.0%   183    4s
+   262    57   23.18442   11   31   25.00000   21.99764  12.0%   188    5s
+   461   140   22.79726   11   47   25.00000   22.23914  11.0%   249   10s
+   533   177   23.55892   22   41   25.00000   22.29139  10.8%   260   15s
+   584   203   23.53924   28   31   25.00000   22.45833  10.2%   309   20s
+   799   184   23.12579   16   30   25.00000   23.12351  7.51%   303   25s
+   968   171   23.87533   21   26   25.00000   23.17659  7.29%   310   30s
+  1149   156   24.00000   18   23   25.00000   23.28804  6.85%   309   35s
+  1361   165   23.58335   19   44   25.00000   23.42863  6.29%   301   40s
+  1481   153     cutoff   30        25.00000   23.54222  5.83%   315   45s
+  1689   106     cutoff   21        25.00000   23.95351  4.19%   309   50s
+
+Cutting planes:
+  Gomory: 2
+  Cover: 12
+  Implied bound: 256
+  MIR: 252
+  Flow cover: 276
+  Network: 9
+
+Explored 1697 nodes (540239 simplex iterations) in 50.21 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 2.500000000000e+01, best bound 2.400000000000e+01, gap 4.0000%
+
+Gurobi 6.5.2 (linux64) logging started Mon Jul 24 16:47:27 2017
+
+Changed value of parameter LogFile to data/mip_solutions/chen_grossman_miller/transportation/unbalanced10_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 25674 rows, 52934 columns and 183736 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 1e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 8e+02]
+Presolve removed 25361 rows and 47912 columns
+Presolve time: 0.05s
+Presolved: 313 rows, 5022 columns, 14803 nonzeros
+Variable types: 4904 continuous, 118 integer (118 binary)
+
+Root relaxation: objective 1.781602e+01, 2241 iterations, 0.04 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0   17.81602    0   30          -   17.81602      -     -    0s
+H    0     0                      35.0000000   17.81602  49.1%     -    0s
+     0     0   18.76371    0   41   35.00000   18.76371  46.4%     -    0s
+     0     0   18.79779    0   43   35.00000   18.79779  46.3%     -    0s
+     0     0   19.23866    0   41   35.00000   19.23866  45.0%     -    0s
+     0     0   19.34179    0   44   35.00000   19.34179  44.7%     -    0s
+     0     0   20.64313    0   42   35.00000   20.64313  41.0%     -    0s
+     0     0   20.76833    0   42   35.00000   20.76833  40.7%     -    0s
+     0     0   21.11861    0   50   35.00000   21.11861  39.7%     -    0s
+     0     0   21.38749    0   48   35.00000   21.38749  38.9%     -    0s
+     0     0   21.50773    0   46   35.00000   21.50773  38.5%     -    1s
+     0     0   21.54111    0   35   35.00000   21.54111  38.5%     -    1s
+     0     0   21.54385    0   31   35.00000   21.54385  38.4%     -    1s
+     0     0   21.54401    0   31   35.00000   21.54401  38.4%     -    1s
+     0     0   21.57864    0   49   35.00000   21.57864  38.3%     -    1s
+H    0     0                      34.0000000   21.57864  36.5%     -    1s
+H    0     0                      33.0000000   21.57864  34.6%     -    1s
+H    0     0                      32.0000000   21.57864  32.6%     -    1s
+H    0     0                      31.0000000   21.57864  30.4%     -    1s
+     0     2   21.57895    0   49   31.00000   21.57895  30.4%     -    1s
+
+Cutting planes:
+  Cover: 15
+  Implied bound: 47
+  MIR: 47
+  Flow cover: 59
+  Network: 5
+
+Explored 2 nodes (17006 simplex iterations) in 2.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Time limit reached
+Best objective 3.100000000000e+01, best bound 2.200000000000e+01, gap 29.0323%
+
+Gurobi 6.5.2 (linux64) logging started Mon Jul 24 17:00:38 2017
+
+Changed value of parameter LogFile to data/mip_solutions/chen_grossman_miller/transportation/unbalanced10_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 25674 rows, 52934 columns and 183736 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 1e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 8e+02]
+Presolve removed 25361 rows and 47912 columns
+Presolve time: 0.05s
+Presolved: 313 rows, 5022 columns, 14803 nonzeros
+Variable types: 4904 continuous, 118 integer (118 binary)
+
+Root relaxation: objective 1.781602e+01, 2241 iterations, 0.05 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0   17.81602    0   30          -   17.81602      -     -    0s
+H    0     0                      35.0000000   17.81602  49.1%     -    0s
+     0     0   18.76371    0   41   35.00000   18.76371  46.4%     -    0s
+     0     0   18.79779    0   43   35.00000   18.79779  46.3%     -    0s
+     0     0   19.23866    0   41   35.00000   19.23866  45.0%     -    0s
+     0     0   19.34179    0   44   35.00000   19.34179  44.7%     -    0s
+     0     0   20.64313    0   42   35.00000   20.64313  41.0%     -    0s
+     0     0   20.76833    0   42   35.00000   20.76833  40.7%     -    0s
+     0     0   21.11861    0   50   35.00000   21.11861  39.7%     -    0s
+     0     0   21.38749    0   48   35.00000   21.38749  38.9%     -    0s
+     0     0   21.50773    0   46   35.00000   21.50773  38.5%     -    1s
+     0     0   21.54111    0   35   35.00000   21.54111  38.5%     -    1s
+     0     0   21.54385    0   31   35.00000   21.54385  38.4%     -    1s
+     0     0   21.54401    0   31   35.00000   21.54401  38.4%     -    1s
+     0     0   21.57864    0   49   35.00000   21.57864  38.3%     -    1s
+H    0     0                      34.0000000   21.57864  36.5%     -    1s
+H    0     0                      33.0000000   21.57864  34.6%     -    1s
+H    0     0                      32.0000000   21.57864  32.6%     -    1s
+H    0     0                      31.0000000   21.57864  30.4%     -    1s
+     0     2   21.57895    0   49   31.00000   21.57895  30.4%     -    1s
+H   54    44                      30.0000000   21.65504  27.8%   301    2s
+H   56    46                      29.0000000   21.65504  25.3%   292    2s
+H   58    48                      28.0000000   21.65504  22.7%   289    2s
+H   60    48                      27.0000000   21.65504  19.8%   283    2s
+
+Cutting planes:
+  Cover: 15
+  Implied bound: 47
+  MIR: 47
+  Flow cover: 59
+  Network: 5
+
+Explored 74 nodes (34856 simplex iterations) in 3.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Time limit reached
+Best objective 2.700000000000e+01, best bound 2.200000000000e+01, gap 18.5185%
+
+Gurobi 6.5.2 (linux64) logging started Thu Jul 27 14:25:21 2017
+
+Changed value of parameter LogFile to data/mip_solutions/chen_grossman_miller/transportation/unbalanced10_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 25674 rows, 52934 columns and 183736 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 1e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 8e+02]
+Presolve removed 25361 rows and 47912 columns
+Presolve time: 0.04s
+Presolved: 313 rows, 5022 columns, 14803 nonzeros
+Variable types: 4904 continuous, 118 integer (118 binary)
+
+Root relaxation: objective 1.781602e+01, 2241 iterations, 0.04 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0   17.81602    0   30          -   17.81602      -     -    0s
+H    0     0                      35.0000000   17.81602  49.1%     -    0s
+     0     0   18.76371    0   41   35.00000   18.76371  46.4%     -    0s
+     0     0   18.79779    0   43   35.00000   18.79779  46.3%     -    0s
+     0     0   19.23866    0   41   35.00000   19.23866  45.0%     -    0s
+     0     0   19.34179    0   44   35.00000   19.34179  44.7%     -    0s
+     0     0   20.64313    0   42   35.00000   20.64313  41.0%     -    0s
+     0     0   20.76833    0   42   35.00000   20.76833  40.7%     -    0s
+     0     0   21.11861    0   50   35.00000   21.11861  39.7%     -    0s
+     0     0   21.38749    0   48   35.00000   21.38749  38.9%     -    0s
+     0     0   21.50773    0   46   35.00000   21.50773  38.5%     -    1s
+     0     0   21.54111    0   35   35.00000   21.54111  38.5%     -    1s
+     0     0   21.54385    0   31   35.00000   21.54385  38.4%     -    1s
+     0     0   21.54401    0   31   35.00000   21.54401  38.4%     -    1s
+     0     0   21.57864    0   49   35.00000   21.57864  38.3%     -    1s
+H    0     0                      34.0000000   21.57864  36.5%     -    1s
+H    0     0                      33.0000000   21.57864  34.6%     -    1s
+H    0     0                      32.0000000   21.57864  32.6%     -    1s
+H    0     0                      31.0000000   21.57864  30.4%     -    1s
+     0     2   21.57895    0   49   31.00000   21.57895  30.4%     -    1s
+H   54    44                      30.0000000   21.65504  27.8%   301    2s
+H   56    46                      29.0000000   21.65504  25.3%   292    2s
+H   58    48                      28.0000000   21.65504  22.7%   289    2s
+H   60    48                      27.0000000   21.65504  19.8%   283    2s
+H  217   111                      26.0000000   21.82676  16.1%   170    3s
+*  254    61              27      25.0000000   21.99050  12.0%   183    4s
+   276    64   23.50000   12   20   25.00000   22.03308  11.9%   195    5s
+   476   147     cutoff   22        25.00000   22.23914  11.0%   256   10s
+   545   185   23.12216   19   38   25.00000   22.29139  10.8%   254   15s
+   665   206   23.79576   25   24   25.00000   22.90213  8.39%   304   20s
+   880   180   24.00000   28    3   25.00000   23.13580  7.46%   301   25s
+  1021   153   23.44111   20   50   25.00000   23.22351  7.11%   319   30s
+  1274   161   24.00000   23   10   25.00000   23.36591  6.54%   303   35s
+  1441   151     cutoff   21        25.00000   23.51114  5.96%   311   40s
+  1618   131     cutoff   31        25.00000   23.74924  5.00%   312   45s
+
+Cutting planes:
+  Gomory: 2
+  Cover: 12
+  Implied bound: 256
+  MIR: 252
+  Flow cover: 276
+  Network: 9
+
+Explored 1697 nodes (540239 simplex iterations) in 46.43 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 2.500000000000e+01, best bound 2.400000000000e+01, gap 4.0000%
