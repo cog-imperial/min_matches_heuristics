@@ -9,3 +9,6 @@
 *.xlsx
 
 *.DS_Store
+
+*.py~
+*.pyc
