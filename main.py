@@ -44,12 +44,12 @@ from lib.io_modules.results_visualization import generate_bigM_comparison_table
 
 # PLOTTING
 
-print('--Generating box-and-whisker plots')
-generate_upper_bounds_box_plot()
-generate_elapsed_times_box_plot()
+#print('--Generating box-and-whisker plots')
+#generate_upper_bounds_box_plot()
+#generate_elapsed_times_box_plot()
 
-print('--Generating line chart')
-generate_line_chart()
+#print('--Generating line chart')
+#generate_line_chart()
 
 
 # RESULTS PRINTING
@@ -65,20 +65,20 @@ generate_line_chart()
 
 # RSULTS TABLE GENERATION (IN THE PAPER)
 
-#print('--Generating problem sizes table')
-#generate_problem_sizes_table()
+print('--Generating problem sizes table')
+generate_problem_sizes_table()
 
-#print('--Generating exact methods table')
-#generate_exact_methods_table()
+print('--Generating exact methods table')
+generate_exact_methods_table()
 
-#print('--Generating heuristic methods tables')
-#generate_heuristic_methods_table()
+print('--Generating heuristic methods tables')
+generate_heuristic_methods_table()
 
-#print('--Generating comparison table')
-#generate_comparison_table()
+print('--Generating comparison table')
+generate_comparison_table()
 
-#print('--Generating bigM comparison table')
-#generate_bigM_comparison_table()
+print('--Generating bigM comparison table')
+generate_bigM_comparison_table()
 
 
 
