@@ -227,7 +227,7 @@ def generate_heuristic_methods_table():
 	write_line(f_elapsed_times, method_line)
 	write_cline(f_elapsed_times,2,10)
 	
-	lpr = multicolumn_element_left_border( bold_element('LPR'), 1 )
+	lpr = multicolumn_element_left_border( bold_element('FLPR'), 1 )
 	lrr = bold_element('LRR')
 	crr = multicolumn_element( bold_element('CRR'), 1 )
 	wfg = bold_element('WFG')
@@ -368,7 +368,7 @@ def generate_comparison_table():
 	write_line(f, author_line)
 	write_cline(f,2,13)
 	
-	lpr = multicolumn_element_left_border( bold_element('LPR'), 1 )
+	lpr = multicolumn_element_left_border( bold_element('FLPR'), 1 )
 	lrr = bold_element('LRR')
 	crr = multicolumn_element( bold_element('CRR'), 1 )
 	wfg = bold_element('WFG')
@@ -726,7 +726,7 @@ def generate_upper_bounds_box_plot():
 	#mpl.rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})
 	#mpl.rc('text', usetex=True)
 	
-	box_labels = ['LPR', 'LRR', 'CRR', 'WFG', 'WFM', 'LHM', 'LFM', 'LHM-LP', 'SS', 'CPLEX']
+	box_labels = ['FLPR', 'LRR', 'CRR', 'WFG', 'WFM', 'LHM', 'LFM', 'LHM-LP', 'SS', 'CPLEX']
 	numbered_labels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 	
 	f = plt.figure()
@@ -769,7 +769,7 @@ def generate_elapsed_times_box_plot():
 	#mpl.rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})
 	#mpl.rc('text', usetex=True)
 	
-	box_labels = ['LPR', 'LRR', 'CRR', 'WFG', 'WFM', 'LHM', 'LFM', 'LHM-LP', 'SS', 'CPLEX']
+	box_labels = ['FLPR', 'LRR', 'CRR', 'WFG', 'WFM', 'LHM', 'LFM', 'LHM-LP', 'SS', 'CPLEX']
 	numbered_labels = [1, 2, 3, 4, 5, 6, 7, 8, 9,10]
 	
 	f = plt.figure()

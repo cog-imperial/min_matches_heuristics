@@ -44,12 +44,12 @@ from lib.io_modules.results_visualization import generate_bigM_comparison_table
 
 # PLOTTING
 
-#print('--Generating box-and-whisker plots')
-#generate_upper_bounds_box_plot()
-#generate_elapsed_times_box_plot()
+print('--Generating box-and-whisker plots')
+generate_upper_bounds_box_plot()
+generate_elapsed_times_box_plot()
 
-#print('--Generating line chart')
-#generate_line_chart()
+print('--Generating line chart')
+generate_line_chart()
 
 
 # RESULTS PRINTING
