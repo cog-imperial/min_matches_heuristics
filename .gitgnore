@@ -1,0 +1,14 @@
+*.dat~
+*.txt~
+
+*plot.pdf
+*chart.pdf
+*.odt
+*.tex
+*.pkl
+*.xlsx
+
+*.DS_Store
+
+*.py~
+*.pyc
