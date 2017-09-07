@@ -1,12 +1,12 @@
 *.dat~
 *.txt~
 
-*plot.pdf
-*chart.pdf
+#*plot.pdf
+#*chart.pdf
 *.odt
-*.tex
-*.pkl
-*.xlsx
+#*.tex
+#*.pkl
+#*.xlsx
 
 *.DS_Store
 
