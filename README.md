@@ -109,11 +109,11 @@ The experimental results are stored in `.sol` files containing the statistics an
 - `data` : 
   all input and output data (problem instances and obtained results)
 
--- `original_instances` : 
-   minimum utility cost problem instances and original `.gms` files
+  - `original_instances` : 
+    minimum utility cost problem instances and original `.gms` files
 
--- `mip_instances` : 
-   minimum number of matches problem instances obtained after solving the minimum utility cost problem
+  - `mip_instances` : 
+    minimum number of matches problem instances obtained after solving the minimum utility cost problem
 
 -- `mip_solutions` : 
    computational results obtained via the exact methods
