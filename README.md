@@ -1,6 +1,8 @@
 # Exact and Heuristic Methods for the Minimum Number of Matches Problem in Heat Recovery Network Design
 
 Date: 11 September 2017
+Authors: Dimitrios Letsios, Georgia Kouyialis, Ruth Misener
+Contact: `d.letsios@imperial.ac.uk`; `g.kouyialis14@imperial.ac.uk`; `r.misener@imperial.ac.uk`
 
 Source code of the methods proposed in Dimitrios Letsios, Georgia Kouyialis, Ruth Misener, "Heuristics with Performance Guarantees for the Minimum
 Number of Matches Problem in Heat Recovery Network Design".
