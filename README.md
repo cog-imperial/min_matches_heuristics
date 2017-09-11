@@ -52,3 +52,40 @@ CU1 100 180 0.00005
 ```
 
 The first line specifies the minimum approach temperature. Every subsequent line and specifies the parameters of either a hot stream (`HS`), cold stream (`CS`), hot utility (`HU`), or cold utility (`CU`) and consists of four elements separated by one or more white spaces. The first element is an identifier indicating whether the line corresponds to a hot stream, cold stream, hot utility or cold utility. The second and third elements correspond to the inlet temperature Tin and outlet temperature Tout, respectively. The fourth element indicates the flow rate heat capacity or the cost depending on whether the line corresponds to a stream or utility, respectively.
+
+## Minimum Utility Cost Problem Solving
+
+The code solves an instance of the minimum utility cost problem using the transportation LP model. This model requires a new representation of a problem instance with temperature intervals (class `Transportation_Model` in `lib/problem_classes/transportation_model.py`). The transshipment LP model is solved via CPLEX. Directory `lib/instance_generation` contains the source code for generating the minimum utility cost problem instances and solving them in order to generate the minimum number of matches instances which are stored in directory `data/mip_instances`. 
+
+## Minimum Number of Matches Problem Instances 
+
+An instance of the minimum number of matches problem is represented in the form a transportation network (class `Network` in `lib/problem_classes/network.py`) and is generated after solving an instance of the minimum utility cost problem. A minimum number of matches problem instance does not distinguish between streams and utilities (each utility is considered as a new stream appended to the end of the list of streams). All these instances are stored in directory `data/mip_instances`.
+
+An instance of the minimum number of matches problem consists of the following parameters:
+- number of hot streams n,
+- number of cold streams m,
+- number of temperature intervals k,
+- the vectors QH and QC specifying the heat load of each stream in each temperature interval (QH[i,t] and QC[j,t] specify the heat load of hot stream i and cold stream j, respectively, in temperature interval t), and
+- the vector R of residual capacities (R[t] is the amount of heat descending from temperature intervals 1,2,...,t on the hot side to temperature intervals t+1,...,k on the cold side).
+
+A minimum number of matches instance is stored in a `.dat` file under the following format:
+```
+Cost=0.383275 
+n=3 
+m=3 
+k=5 
+QH[0]: T2 1166.9 T3 833.5 
+QH[1]: T1 3200.0 T2 800.0 
+QH[2]: T0 345.9 
+QC[0]: T1 144.5 T2 1011.5 T3 1445.0 
+QC[1]: T0 345.9 T1 1844.8 T2 807.1 
+QC[2]: T4 747.5 
+R[0]= 0.0 
+R[1]= 0.0 
+R[2]= 1210.7 
+R[3]= 1359.0 
+R[4]= 747.5 
+R[5]= 0.0
+```
+
+The first line specifies the total utility cost computed by solving the minimum utility cost problem. The second, third and fourth lines specify the number of hot streams, cold streams, and temperature intervals, respectively. For each hot stream i and cold stream j, there is a line starting with `QH[i]:` and `QC[j]:`, respectively, specifying the heat of the stream in each temperature interval. In particular, each stream is associated with a sequence of pairs of the form `T2 1166.9`. Every such pair specifies the heat of the stream in one temperature interval. If a certain temperature interval does not appear in the sequence of stream, this means that the stream has zero heat in the particular temperature interval. Finally, the file contains the heat residual capacities, one for each temperature interval.
