@@ -41,7 +41,7 @@ A hot / cold utility (class `Utility` in `lib/problem_classes/utility.py`) is as
 - a cost κ.
 
 A minimum utility cost problem is instance is stored in `.dat` file under the following format:
----
+```
 DTmin 10 
 HS1 320 200 16.67 
 HS2 480 280 20 
@@ -49,6 +49,6 @@ CS1 140 320 14.45
 CS2 240 500 11.53 
 HU1 540 539 0.001 
 CU1 100 180 0.00005
----
+```
 
 The first line specifies the minimum approach temperature. Every subsequent line and specifies the parameters of either a hot stream (`HS`), cold stream (`CS`), hot utility (`HU`), or cold utility (`CU`) and consists of four elements separated by one or more white spaces. The first element is an identifier indicating whether the line corresponds to a hot stream, cold stream, hot utility or cold utility. The second and third elements correspond to the inlet temperature Tin and outlet temperature Tout, respectively. The fourth element indicates the flow rate heat capacity or the cost depending on whether the line corresponds to a stream or utility, respectively.
