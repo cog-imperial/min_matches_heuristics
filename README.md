@@ -1,5 +1,7 @@
 # Exact and Heuristic Methods for the Minimum Number of Matches Problem in Heat Recovery Network Design
 
+Date: 11 September 2017
+
 Source code of the methods proposed in Dimitrios Letsios, Georgia Kouyialis, Ruth Misener, "Heuristics with Performance Guarantees for the Minimum
 Number of Matches Problem in Heat Recovery Network Design".
 
@@ -65,7 +67,7 @@ An instance of the minimum number of matches problem consists of the following p
 - number of hot streams n,
 - number of cold streams m,
 - number of temperature intervals k,
-- the vectors QH and QC specifying the heat load of each stream in each temperature interval (QH[i,t] and QC[j,t] specify the heat load of hot stream i and cold stream j, respectively, in temperature interval t), and
+- the vectors QH and QC specifying the heat supply and demand of each stream in each temperature interval (QH[i,t] and QC[j,t] specify the heat supply and demand of hot stream i and cold stream j, respectively, in temperature interval t), and
 - the vector R of residual capacities (R[t] is the amount of heat descending from temperature intervals 1,2,...,t on the hot side to temperature intervals t+1,...,k on the cold side).
 
 A minimum number of matches instance is stored in a `.dat` file under the following format:
