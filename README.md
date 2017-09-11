@@ -89,3 +89,58 @@ R[5]= 0.0
 ```
 
 The first line specifies the total utility cost computed by solving the minimum utility cost problem. The second, third and fourth lines specify the number of hot streams, cold streams, and temperature intervals, respectively. For each hot stream i and cold stream j, there is a line starting with `QH[i]:` and `QC[j]:`, respectively, specifying the heat of the stream in each temperature interval. In particular, each stream is associated with a sequence of pairs of the form `T2 1166.9`. Every such pair specifies the heat of the stream in one temperature interval. If a certain temperature interval does not appear in the sequence of stream, this means that the stream has zero heat in the particular temperature interval. Finally, the file contains the heat residual capacities, one for each temperature interval.
+
+## Minimum Number of Matches Problem Solving
+
+Exact methods:
+CPLEX 12.6.3 and Gurobi 6.5.2 are used to solve exactly both the transshipment and transportation MILP formulations of the minimum number of matches problem. Based on the difficulty of each test set, we set a time limit for each solver run as follows: (i) 1800 seconds for the Furman (2000) test set, (ii) 7200 seconds for the Chen et al. (2015a, 2015b) test set, 14400 seconds for the Grossman (2017) test set. Furthermore, each solver run stores the computed solution together with the following statistics: (i) elapsed time, (ii) number of explored nodes, (iii) upper and lower bound (relative gap). Directory `lib/exact_methods` contains the modules for solving the minimum number of matches problem via exact methods. Directory `data/mip_solutions` stores the computational results which have been obtained via the exact methods.
+
+Heuristic methods:
+This code classifies the heuristics for solving the minimum number of matches problem into three categories: (i) relaxation rounding, (ii) water filling, and (iii) greedy packing. In particular, the problem is solved via the following heuristics:
+Fractional LP Rounding (FLPR), Lagrangian Relaxation Rounding (LRR), Covering Relaxation Rounding (CRR),
+Water Filling Greedy (WFG), Water Filling MILP-based (WFM), and
+Largest Heat Match Greedy (LHM), Largest Heat Match LP based (LHM-LP), Largest Fraction Match (LFM), Shortest Stream (SS).
+Directory `lib/heuristic_methods` contains the modules implementing these heuristics. Directory `data/heuristic_solutions` stores the computational results which have been obtained via the heuristic methods. 
+
+The experimental results are stored in `.sol` files containing the statistics and the computed solution, i.e. the value of each variable. In the case of exact methods, CPLEX and Gurobi also store their `.log` file.
+
+## Repository Contents
+
+- `data` : 
+  all input and output data (problem instances and obtained results)
+
+-- `original_instances` : 
+   minimum utility cost problem instances and original `.gms` files
+
+-- `mip_instances` : 
+   minimum number of matches problem instances obtained after solving the minimum utility cost problem
+
+-- `mip_solutions` : 
+   computational results obtained via the exact methods
+
+-- `heuristic_solutions` : 
+   computational results obtained via the heuristic methods
+
+-- bigM_parameters : 
+   big-M parameters for each problem instance computed via the simple standard way, the Gundersen et al. (1997) way and the Letsios et al. (2017) way
+
+- `lib` : 
+  all required modules for the solution process
+
+-- `instance_generation` : 
+   generation and solving of minimum utility cost problem instances, generation of minimum number of matches problem instances
+
+-- `problem_classes` : 
+   essential classes for representing the problem objects
+
+-- `exact_methods` : 
+   modules implementing the exact methods
+
+-- `heuristic_methods` : 
+   modules implementing the heuristic methods
+
+-- `io_modules` : 
+   necessary modules for processing input and output files
+
+- `main.py` : 
+  root file performing all steps for obtaining the results 
