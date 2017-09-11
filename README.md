@@ -115,32 +115,32 @@ The experimental results are stored in `.sol` files containing the statistics an
   - `mip_instances` : 
     minimum number of matches problem instances obtained after solving the minimum utility cost problem
 
--- `mip_solutions` : 
-   computational results obtained via the exact methods
+  - `mip_solutions` : 
+    computational results obtained via the exact methods
 
--- `heuristic_solutions` : 
-   computational results obtained via the heuristic methods
+  - `heuristic_solutions` : 
+    computational results obtained via the heuristic methods
 
--- bigM_parameters : 
-   big-M parameters for each problem instance computed via the simple standard way, the Gundersen et al. (1997) way and the Letsios et al. (2017) way
+  - bigM_parameters : 
+    big-M parameters for each problem instance computed via the simple standard way, the Gundersen et al. (1997) way and the Letsios et al. (2017) way
 
 - `lib` : 
   all required modules for the solution process
 
--- `instance_generation` : 
-   generation and solving of minimum utility cost problem instances, generation of minimum number of matches problem instances
+  - `instance_generation` : 
+    generation and solving of minimum utility cost problem instances, generation of minimum number of matches problem instances
 
--- `problem_classes` : 
-   essential classes for representing the problem objects
+  - `problem_classes` : 
+    essential classes for representing the problem objects
 
--- `exact_methods` : 
-   modules implementing the exact methods
+  - `exact_methods` : 
+    modules implementing the exact methods
 
--- `heuristic_methods` : 
-   modules implementing the heuristic methods
+  - `heuristic_methods` : 
+    modules implementing the heuristic methods
 
--- `io_modules` : 
-   necessary modules for processing input and output files
+  - `io_modules` : 
+    necessary modules for processing input and output files
 
 - `main.py` : 
   root file performing all steps for obtaining the results 
