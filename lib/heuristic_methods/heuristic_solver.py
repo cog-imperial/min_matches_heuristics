@@ -14,7 +14,8 @@ from water_filling.water_filling_mip import water_filling_mip
 
 def solve_heuristically():
 
-	test_sets = ['furman_sahinidis','chen_grossman_miller','grossman_random']
+	test_sets = ['furman_sahinidis','chen_grossmann_miller','grossmann_random']
+	test_sets = ['grossmann_random']
 
 	for test_set in test_sets:
 		dat_files_path = 'data/mip_instances/'+test_set
@@ -32,9 +33,9 @@ def solve_heuristically():
 				# PACKING HEURISTICS
 				for heuristic in ['largest_heat_match_lp_based', 'largest_heat_match_greedy', 'largest_fraction_match', 'shortest_stream'] :
 					
-					if heuristic == 'largest_heat_match_lp_based': 
-						apply_heuristic(test_set, test_id, largest_heat_match_lp_based, heuristic)
-						
+					#if heuristic == 'largest_heat_match_lp_based': 
+					#	apply_heuristic(test_set, test_id, largest_heat_match_lp_based, heuristic)
+					
 					if heuristic == 'largest_heat_match_greedy':
 						apply_heuristic(test_set, test_id, largest_heat_match_greedy, heuristic)
 						

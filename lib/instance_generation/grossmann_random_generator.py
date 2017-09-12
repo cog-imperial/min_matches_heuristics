@@ -1,4 +1,4 @@
-# Apart from FCp, all parameters of grossman_random instances are obtained by parsing the .gms files.
+# Apart from FCp, all parameters of grossmann_random instances are obtained by parsing the .gms files.
 # The FCp parameters are generated randomly.
 
 from __future__ import division
@@ -13,10 +13,10 @@ from lib.problem_classes.stream import Stream
 from lib.problem_classes.utility import Utility
 from lib.problem_classes.min_utility_instance import Min_Utility_Instance
 
-def generate_grossman_random_instances():
-	source_files_path = 'data/original_instances/grossman_random/gms_files/'
-	dat_files_path = 'data/original_instances/grossman_random/dat_files/'
-	test_set='grossman_random'
+def generate_grossmann_random_instances():
+	source_files_path = 'data/original_instances/grossmann_random/gms_files/'
+	dat_files_path = 'data/original_instances/grossmann_random/dat_files/'
+	test_set='grossmann_random'
 
 	source_files = [file_name for file_name in listdir(source_files_path) if file_name.startswith('Transshipment')]
 	for file_name in source_files: 

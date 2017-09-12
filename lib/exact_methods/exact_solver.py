@@ -8,23 +8,24 @@ from transportation_mip_solver import solve_transportation_mip
 
 def solve_exactly():
 	
-	#test_sets = ['furman_sahinidis','chen_grossman_miller','grossman_random']
+	test_sets = ['furman_sahinidis','chen_grossmann_miller','grossmann_random']
+	timeout = 2
 	
 	#test_sets = ['furman_sahinidis']
 	#timeout = 1800
 	
-	#test_sets = ['chen_grossman_miller']
+	#test_sets = ['chen_grossmann_miller']
 	#timeout = 7200
 	
-	test_sets = ['grossman_random']
-	timeout = 14400
+	test_sets = ['grossmann_random']
+	#timeout = 14400
 	
 	for test_set in test_sets:
 		dat_files_path='data/mip_instances/'+test_set
 		test_ids=listdir(dat_files_path) 
 	
 		for test_id in test_ids:
-			if '~' not in test_id:
+			if '~' not in test_id and '12' in test_id:
 				
 				test_id=test_id.replace('.dat','') 
 				print(test_id)

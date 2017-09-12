@@ -125,7 +125,7 @@ The experimental results are stored in `.sol` files containing the statistics an
   - `heuristic_solutions` : 
     computational results obtained via the heuristic methods
 
-  - bigM_parameters : 
+  - `bigM_parameters` : 
     big-M parameters for each problem instance computed via the simple standard way, the Gundersen et al. (1997) way and the Letsios et al. (2017) way
 
 - `lib` : 
@@ -148,3 +148,5 @@ The experimental results are stored in `.sol` files containing the statistics an
 
 - `main.py` : 
   root file performing all steps for obtaining the results 
+
+## References

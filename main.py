@@ -1,5 +1,5 @@
-from lib.instance_generation.chen_grossman_miller_generator import generate_chen_grossman_miller_instances
-from lib.instance_generation.grossman_random_generator import generate_grossman_random_instances
+from lib.instance_generation.chen_grossmann_miller_generator import generate_chen_grossmann_miller_instances
+from lib.instance_generation.grossmann_random_generator import generate_grossmann_random_instances
 from lib.instance_generation.min_utility_cost_solver import solve_min_utility_cost
 from lib.exact_methods.exact_solver import solve_exactly
 from lib.heuristic_methods.heuristic_solver import solve_heuristically
@@ -17,11 +17,11 @@ from lib.io_modules.results_visualization import generate_bigM_comparison_table
 
 # INSTANCE GENERATION
 
-#print('--Generation of chen_grossman_miller instances')
-#generate_chen_grossman_miller_instances()
+#print('--Generation of chen_grossmann_miller instances')
+#generate_chen_grossmann_miller_instances()
 
-#print('--Generation of grossman_random instances')
-#generate_grossman_random_instances()
+#print('--Generation of grossmann_random instances')
+#generate_grossmann_random_instances()
 
 #print('--Minimum utility cost solving')
 #solve_min_utility_cost()
@@ -35,6 +35,14 @@ from lib.io_modules.results_visualization import generate_bigM_comparison_table
 
 #print('--Minimum number of matches solving via heuristic methods')
 #solve_heuristically()
+
+# RESULTS PRINTING
+
+#print('--Printing mip results')
+#print_mip_results()
+
+#print('--Printing heuristic results')
+#print_heuristic_results()
 
 # BIG-M COMPARISONS
 
@@ -52,36 +60,25 @@ from lib.io_modules.results_visualization import generate_bigM_comparison_table
 #generate_line_chart()
 
 
-# RESULTS PRINTING
+# RESULTS TABLE GENERATION (IN THE PAPER)
 
-#print('--Printing mip results')
-#print_mip_results()
+#print('--Generating problem sizes table')
+#generate_problem_sizes_table()
 
-#print('--Printing heuristic results')
-#print_heuristic_results()
+#print('--Generating exact methods table')
+#generate_exact_methods_table()
 
+#print('--Generating heuristic methods tables')
+#generate_heuristic_methods_table()
 
+#print('--Generating comparison table')
+#generate_comparison_table()
 
-
-# RSULTS TABLE GENERATION (IN THE PAPER)
-
-print('--Generating problem sizes table')
-generate_problem_sizes_table()
-
-print('--Generating exact methods table')
-generate_exact_methods_table()
-
-print('--Generating heuristic methods tables')
-generate_heuristic_methods_table()
-
-print('--Generating comparison table')
-generate_comparison_table()
-
-print('--Generating bigM comparison table')
-generate_bigM_comparison_table()
+#print('--Generating bigM comparison table')
+#generate_bigM_comparison_table()
 
 
-
+#####APPLICABLE ONLY IF THE CORRESPONDING FOLDERS ARE CREATED
 # RESULTS TABLE GENERATION (IN THE PRESENTATION)
 
 #print('--Generating all heuristic results tables')

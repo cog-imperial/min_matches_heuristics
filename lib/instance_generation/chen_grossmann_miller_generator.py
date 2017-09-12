@@ -5,10 +5,10 @@ from os import listdir
 from lib.io_modules.readers import parse_gams_file
 from lib.io_modules.writers import write_min_utility_dat_file
 
-def generate_chen_grossman_miller_instances():
-	source_files_path = 'data/original_instances/chen_grossman_miller/gms_files/'
-	dat_files_path = 'data/original_instances/chen_grossman_miller/dat_files/'
-	test_set='chen_grossman_miller'
+def generate_chen_grossmann_miller_instances():
+	source_files_path = 'data/original_instances/chen_grossmann_miller/gms_files/'
+	dat_files_path = 'data/original_instances/chen_grossmann_miller/dat_files/'
+	test_set='chen_grossmann_miller'
 
 	source_files = listdir(source_files_path)
 	for file_name in source_files:

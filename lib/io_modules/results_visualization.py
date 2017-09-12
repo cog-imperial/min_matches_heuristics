@@ -12,7 +12,7 @@ from matplotlib.backends.backend_pdf import PdfPages
 
 def get_mip_results():
 
-	test_sets = ['furman_sahinidis', 'chen_grossman_miller', 'grossman_random']
+	test_sets = ['furman_sahinidis', 'chen_grossmann_miller', 'grossmann_random']
 	models = ['transshipment', 'transportation']
 	results = []
 	
@@ -27,11 +27,11 @@ def get_mip_results():
 				
 				if '.log' not in sol_file:
 				
-					if test_set in ['furman_sahinidis', 'chen_grossman_miller']:
+					if test_set in ['furman_sahinidis', 'chen_grossmann_miller']:
 						test_id = sol_file.replace('.sol','').split('_', 1)[0]
 						solver = sol_file.replace('.sol','').split('_', 1)[1]
 					
-					if test_set in ['grossman_random']:
+					if test_set in ['grossmann_random']:
 						test_id = sol_file.replace('.sol','').split('_', 2)[0] + '_' + sol_file.replace('.sol','').split('_', 2)[1]
 						solver = sol_file.replace('.sol','').split('_', 2)[2]
 					
@@ -54,7 +54,7 @@ def get_mip_results():
       
 def get_heuristic_results():
 
-	test_sets = ['furman_sahinidis', 'chen_grossman_miller', 'grossman_random']
+	test_sets = ['furman_sahinidis', 'chen_grossmann_miller', 'grossmann_random']
 	methods = ['greedy_packing', 'water_filling', 'relaxation_rounding']
 	results = []
 	
@@ -67,11 +67,11 @@ def get_heuristic_results():
 		
 			for sol_file in sol_files :
 				
-				if test_set in ['furman_sahinidis', 'chen_grossman_miller']:
+				if test_set in ['furman_sahinidis', 'chen_grossmann_miller']:
 					test_id = sol_file.replace('.sol','').split('_', 1)[0]
 					heuristic = sol_file.replace('.sol','').split('_', 1)[1]
 					
-				if test_set in ['grossman_random']:
+				if test_set in ['grossmann_random']:
 					test_id = sol_file.replace('.sol','').split('_', 2)[0] + '_' + sol_file.replace('.sol','').split('_', 2)[1]
 					heuristic = sol_file.replace('.sol','').split('_', 2)[2]
 				
@@ -126,18 +126,18 @@ def generate_exact_methods_table():
 	write_line(f, label_line)
 	write_hline(f)
 	
-	test_sets = ['furman_sahinidis', 'chen_grossman_miller', 'grossman_random']
+	test_sets = ['furman_sahinidis', 'chen_grossmann_miller', 'grossmann_random']
 	
 	for test_set in test_sets:
 		
 		if test_set == 'furman_sahinidis':
 			test_set_label = bold_element('Furman Sahinidis Test Set \\cite{furman:2004} (30min time limit)')
 			timeout = 1800
-		if test_set == 'chen_grossman_miller':
-			test_set_label = bold_element('Chen Grossman Miller Test Set \\cite{minlp,chen:2015} (2h time limit)')
+		if test_set == 'chen_grossmann_miller':
+			test_set_label = bold_element('Chen Grossmann Miller Test Set \\cite{minlp,chen:2015} (2h time limit)')
 			timeout = 7200
-		if test_set == 'grossman_random':
-			test_set_label = bold_element('Grossman Random Test Set \\cite{grossman:2017} (4h time limit)')
+		if test_set == 'grossmann_random':
+			test_set_label = bold_element('Grossmann Random Test Set \\cite{grossmann:2017} (4h time limit)')
 			timeout = 14400
 		
 		test_set_line = [non_centered_multicolumn_element(test_set_label, 13)]
@@ -244,18 +244,18 @@ def generate_heuristic_methods_table():
 	write_line(f_elapsed_times, label_line)
 	write_hline(f_elapsed_times)
 	
-	test_sets = ['furman_sahinidis', 'chen_grossman_miller', 'grossman_random']
+	test_sets = ['furman_sahinidis', 'chen_grossmann_miller', 'grossmann_random']
 	
 	for test_set in test_sets:
 		
 		if test_set == 'furman_sahinidis':
 			test_set_label = bold_element('Furman Sahinidis Test Set \\cite{furman:2004}')
 			timeout = 1800
-		if test_set == 'chen_grossman_miller':
-			test_set_label = bold_element('Chen Grossman Miller Test Set \\cite{minlp,chen:2015}')
+		if test_set == 'chen_grossmann_miller':
+			test_set_label = bold_element('Chen Grossmann Miller Test Set \\cite{minlp,chen:2015}')
 			timeout = 7200
-		if test_set == 'grossman_random':
-			test_set_label = bold_element('Grossman Random Test Set \\cite{grossman:2017}')
+		if test_set == 'grossmann_random':
+			test_set_label = bold_element('Grossmann Random Test Set \\cite{grossmann:2017}')
 			timeout = 14400
 		
 		test_set_line = [non_centered_multicolumn_element(test_set_label, 11)]
@@ -326,7 +326,7 @@ def generate_heuristic_methods_table():
 	write_end_tabular(f_upper_bounds)
 	write_end_adjustbox(f_upper_bounds)
 	write_vspace(f_upper_bounds,'-0.2cm')
-	write_caption(f_upper_bounds,'Upper bounds computed by the heuristics and CPLEX 12.6.3 with time limit (i) 30min for Furman Sahinidis test set, (ii) 2h for Chen Grossman Miller test set, and (iii) 4h for Grossman random test set. An * indicates timeout. All heuristic results are available online in \\cite{source_code}.')
+	write_caption(f_upper_bounds,'Upper bounds computed by the heuristics and CPLEX 12.6.3 with time limit (i) 30min for Furman Sahinidis test set, (ii) 2h for Chen Grossmann Miller test set, and (iii) 4h for Grossmann random test set. An * indicates timeout. All heuristic results are available online in \\cite{source_code}.')
 	write_label(f_upper_bounds,'Table:Heuristic_Upper_Bounds')
 	write_end_table(f_upper_bounds)
 	f_upper_bounds.close()
@@ -334,7 +334,7 @@ def generate_heuristic_methods_table():
 	write_end_tabular(f_elapsed_times)
 	write_end_adjustbox(f_elapsed_times)
 	write_vspace(f_elapsed_times,'-0.2cm')
-	write_caption(f_elapsed_times,'CPU times of the heuristics and CPLEX 12.6.3 with time limit (i) 30min for Furman Sahinidis test set, (ii) 2h for Chen Grossman Miller test set, and (iii) 4h for Grossman random test set. An * indicates timeout. All heuristic results are available online in \\cite{source_code}.')
+	write_caption(f_elapsed_times,'CPU times of the heuristics and CPLEX 12.6.3 with time limit (i) 30min for Furman Sahinidis test set, (ii) 2h for Chen Grossmann Miller test set, and (iii) 4h for Grossmann random test set. An * indicates timeout. All heuristic results are available online in \\cite{source_code}.')
 	write_label(f_elapsed_times,'Table:Heuristic_CPU_Times')
 	write_end_table(f_elapsed_times)
 	f_elapsed_times.close()
@@ -475,7 +475,7 @@ def get_furman_sahinidis_test_set_references():
 
 def get_problem_sizes():
 
-	test_sets=['furman_sahinidis','chen_grossman_miller','grossman_random']
+	test_sets=['furman_sahinidis','chen_grossmann_miller','grossmann_random']
 	sizes = []
 	
 	for test_set in test_sets:
@@ -536,17 +536,17 @@ def generate_problem_sizes_table():
 	write_line(f, second_line)
 	write_hline(f)
 	
-	test_sets = ['furman_sahinidis', 'chen_grossman_miller', 'grossman_random']
+	test_sets = ['furman_sahinidis', 'chen_grossmann_miller', 'grossmann_random']
 	
 	for test_set in test_sets:
 		
 		if test_set == 'furman_sahinidis':
 			test_set_label = bold_element('Furman Sahinidis Test Set \\cite{furman:2004}')
 			furman_sahinidis_references = get_furman_sahinidis_test_set_references()
-		if test_set == 'chen_grossman_miller':
-			test_set_label = bold_element('Chen Grossman Miller Test Set \\cite{minlp,chen:2015}')
-		if test_set == 'grossman_random':
-			test_set_label = bold_element('Grossman Random Test Set \\cite{grossman:2017}')
+		if test_set == 'chen_grossmann_miller':
+			test_set_label = bold_element('Chen Grossmann Miller Test Set \\cite{minlp,chen:2015}')
+		if test_set == 'grossmann_random':
+			test_set_label = bold_element('Grossmann Random Test Set \\cite{grossmann:2017}')
 		
 		test_set_line = [non_centered_multicolumn_element(test_set_label, 8)]
 		write_line(f, test_set_line)
@@ -868,16 +868,16 @@ def generate_bigM_comparison_table():
 	
 	algorithms = ['lp_rounding', 'lr_rounding', 'lp_relaxation']
 	bigM_types = ['simple', 'gundersen', 'greedy']
-	test_sets = ['furman_sahinidis', 'chen_grossman_miller', 'grossman_random']
+	test_sets = ['furman_sahinidis', 'chen_grossmann_miller', 'grossmann_random']
 	
 	for test_set in test_sets:
 		
 		if test_set == 'furman_sahinidis':
 			test_set_label = bold_element('Furman Sahinidis Test Set \\cite{furman:2004}')
-		if test_set == 'chen_grossman_miller':
-			test_set_label = bold_element('Chen Grossman Miller Test Set \\cite{minlp,chen:2015}')
-		if test_set == 'grossman_random':
-			test_set_label = bold_element('Grossman Random Test Set \\cite{grossman:2017}')
+		if test_set == 'chen_grossmann_miller':
+			test_set_label = bold_element('Chen Grossmann Miller Test Set \\cite{minlp,chen:2015}')
+		if test_set == 'grossmann_random':
+			test_set_label = bold_element('Grossmann Random Test Set \\cite{grossmann:2017}')
 		
 		test_set_line = [non_centered_multicolumn_element(test_set_label, 10)]
 		write_line(f, test_set_line)

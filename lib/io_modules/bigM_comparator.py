@@ -10,7 +10,7 @@ import pickle
 
 def bigM_compare():
 
-	test_sets = ['furman_sahinidis','chen_grossman_miller','grossman_random']
+	test_sets = ['furman_sahinidis','chen_grossmann_miller','grossmann_random']
 	results = []
 
 	for test_set in test_sets:
@@ -66,7 +66,7 @@ def write_bigM_comparison_spreadsheet():
 	df_lrr_list = []
 	df_relaxation_list = []
 	
-	test_sets = ['furman_sahinidis', 'chen_grossman_miller', 'grossman_random']
+	test_sets = ['furman_sahinidis', 'chen_grossmann_miller', 'grossmann_random']
 	algorithms = ['lp_rounding', 'lr_rounding', 'lp_relaxation']
 	bigM_types = ['simple', 'gundersen', 'greedy']
 	column_labels = ['Test Case', 'Simple', 'GTA97', 'LKM17']

@@ -10,7 +10,7 @@ from lib.io_modules.writers import write_bigM_parameters
 
 def solve_min_utility_cost():
 
-	test_sets=['furman_sahinidis','chen_grossman_miller','grossman_random']
+	test_sets=['furman_sahinidis','chen_grossmann_miller','grossmann_random']
 	
 	for test_set in test_sets:
 		dat_files_path='data/original_instances/'+test_set+'/dat_files/'
@@ -33,7 +33,7 @@ def solve_min_utility_cost():
 				# write_packing_instance(test_set,test_id,packing) 
 			
 				## We do not create a packing instance for any of the subnetworks
-				#if test_set in ['chen_grossman_miller','grossman_random']:
+				#if test_set in ['chen_grossmann_miller','grossmann_random']:
 					#subnetworks=network.decomposition()
 					#for s in subnetworks: 
 						#write_mip_instance(test_set,test_id + '_subnetwork' + str(subnetworks.index(s)),s)
