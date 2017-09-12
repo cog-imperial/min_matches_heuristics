@@ -10,20 +10,20 @@ Number of Matches Problem in Heat Recovery Network Design".
 This repository contains 1) a collection of benchmark instances of the general heat exchanger network synthesis problem, 2) a source code implementing and evaluating the performance of exact and heuristic methods for the minimum number of matches problem (using Python 2.7.6 and Pyomo 4.4.1), and 3) the obtained results after running the code on an Intel Core i7-4790 CPU 3.60 GHz with 15.6 GB RAM and 64-bit Ubuntu 14.04. Letsios, Kouyialis and Misener (2017) present a technical description of the implemented methods.
 
 Based on the standard sequential method for heat exchanger network design, solving the minimum number of matches problem requires solving the minimum utility cost problem beforehand. In particular, the solution process consists of the following steps:
-1. generation of minimum utility cost (i.e. general heat exchanger network design) input files,
-2. solving of the minimum utility cost problem using the transportation LP model and generation of the minimum number of matches problem instances,
-3. solving of the minimum number of matches problem via exact and heuristic methods.
+1. generating the minimum utility cost (i.e. general heat exchanger network design) input files,
+2. solving the minimum utility cost problem using the transportation LP model and generating the minimum number of matches problem instances,
+3. solving the minimum number of matches problem via exact and heuristic methods.
 
-All input and output data files are located in directory `data`, all required Python modules are located in directory `lib` while the the root file `main.py` performs all steps for obtaining the results. 
+All input and output data files are located in directory `data`, all the required Python modules are located in directory `lib` while the root file `main.py` performs all steps for obtaining the results. 
 
 ## Benchmark Instances
 
 This repository contains a collection of 48 general heat exchanger network design problem instances. These instances are classified into three test sets: 
 1. Furman (2000) test set,
-2. Chen et al. (2015a, 2015b) test set, and
-3. Grossman (2017) test set.
+2. Chen et al. (2015a, 2015b) test set,
+3. Grossmann (2017) test set.
 
-The Furman (2000) instances are manually digitized from the engineering literature, the Chen et al. (2015a, 2015b) are existing instances in the literature, and the Grossman (2017) instances are generated randomly with fixed seeds. Obtaining the Chen et al. (2015a, 2015b) and Grossman (2017) instances requires parsing existing `.gms` files and random selections in the latter case. All minimum utility cost instances as well as the corresponding `.gms` files are stored in the directory `data/original_instances`.
+The Furman (2000) instances are manually digitized from the engineering literature, the Chen et al. (2015a, 2015b) are existing instances in the literature, and the Grossmann (2017) instances are generated randomly with fixed seeds. Obtaining the Chen et al. (2015a, 2015b) and Grossmann (2017) instances requires parsing existing `.gms` files and random selections in the latter case. All minimum utility cost instances as well as the corresponding `.gms` files are stored in the directory `data/original_instances`.
 
 ## Minimum Utility Cost Problem Instances
 
@@ -31,17 +31,17 @@ An instance of the minimum utility cost problem (class `Min_Utility_Instance` in
 - a set of hot streams HS,
 - a set of cold streams CS,
 - a set of hot utilities HU,
-- a set of cold utilities CU, and
+- a set of cold utilities CU,
 - a minimum approach temperature ΔTmin.
 
 A hot / cold stream (class `Stream` in `lib/problem_classes/stream.py`) is specified by
 - an inlet temperature Tin,
-- an outlet temperature Tout, and
+- an outlet temperature Tout,
 - a flow rate heat capacity FCp.
 
 A hot / cold utility (class `Utility` in `lib/problem_classes/utility.py`) is associated with
 - an inlet temperature Tin,
-- an outlet temperature Tout, and
+- an outlet temperature Tout,
 - a cost κ.
 
 A minimum utility cost problem is instance is stored in `.dat` file under the following format:
@@ -55,7 +55,7 @@ HU1 540 539 0.001
 CU1 100 180 0.00005
 ```
 
-The first line specifies the minimum approach temperature. Every subsequent line and specifies the parameters of either a hot stream (`HS`), cold stream (`CS`), hot utility (`HU`), or cold utility (`CU`) and consists of four elements separated by one or more white spaces. The first element is an identifier indicating whether the line corresponds to a hot stream, cold stream, hot utility or cold utility. The second and third elements correspond to the inlet temperature Tin and outlet temperature Tout, respectively. The fourth element indicates the flow rate heat capacity or the cost depending on whether the line corresponds to a stream or utility, respectively.
+The first line specifies the minimum approach temperature. Every subsequent line specifies the parameters of either a hot stream (`HS`), cold stream (`CS`), hot utility (`HU`), or cold utility (`CU`) and consists of four elements separated by one or more white spaces. The first element is an identifier indicating whether the line corresponds to a hot stream, cold stream, hot utility or cold utility. The second and third elements correspond to the inlet temperature Tin and outlet temperature Tout, respectively. The fourth element indicates the flow rate heat capacity or the cost depending on whether the line corresponds to a stream or utility, respectively.
 
 ## Minimum Utility Cost Problem Solving
 
@@ -63,13 +63,13 @@ The code solves an instance of the minimum utility cost problem using the transp
 
 ## Minimum Number of Matches Problem Instances 
 
-An instance of the minimum number of matches problem is represented in the form a transportation network (class `Network` in `lib/problem_classes/network.py`) and is generated after solving an instance of the minimum utility cost problem. A minimum number of matches problem instance does not distinguish between streams and utilities (each utility is considered as a new stream appended to the end of the list of streams). All these instances are stored in directory `data/mip_instances`.
+An instance of the minimum number of matches problem is represented in the form of a transportation network (class `Network` in `lib/problem_classes/network.py`) and is generated after solving an instance of the minimum utility cost problem. A minimum number of matches problem instance does not distinguish between streams and utilities (each utility is considered as a new stream appended to the end of the list of streams). All these instances are stored in directory `data/mip_instances`.
 
 An instance of the minimum number of matches problem consists of the following parameters:
 - number of hot streams n,
 - number of cold streams m,
 - number of temperature intervals k,
-- the vectors QH and QC specifying the heat supply and demand of each stream in each temperature interval (QH[i,t] and QC[j,t] specify the heat supply and demand of hot stream i and cold stream j, respectively, in temperature interval t), and
+- the vectors QH and QC specifying the heat supply and demand of each stream in each temperature interval (QH[i,t] and QC[j,t] specify the heat supply and demand of hot stream i and cold stream j, respectively, in temperature interval t),
 - the vector R of residual capacities (R[t] is the amount of heat descending from temperature intervals 1,2,...,t on the hot side to temperature intervals t+1,...,k on the cold side).
 
 A minimum number of matches instance is stored in a `.dat` file under the following format:
@@ -97,7 +97,7 @@ The first line specifies the total utility cost computed by solving the minimum 
 ## Minimum Number of Matches Problem Solving
 
 Exact methods:
-CPLEX 12.6.3 and Gurobi 6.5.2 are used to solve exactly both the transshipment and transportation MILP formulations of the minimum number of matches problem. Based on the difficulty of each test set, we set a time limit for each solver run as follows: (i) 1800 seconds for the Furman (2000) test set, (ii) 7200 seconds for the Chen et al. (2015a, 2015b) test set, 14400 seconds for the Grossman (2017) test set. Furthermore, each solver run stores the computed solution together with the following statistics: (i) elapsed time, (ii) number of explored nodes, (iii) upper and lower bound (relative gap). Directory `lib/exact_methods` contains the modules for solving the minimum number of matches problem via exact methods. Directory `data/mip_solutions` stores the computational results which have been obtained via the exact methods.
+CPLEX 12.6.3 and Gurobi 6.5.2 are used to solve exactly both the transshipment and transportation MILP formulations of the minimum number of matches problem. Based on the difficulty of each test set, we set a time limit for each solver run as follows: (i) 1800 seconds for the Furman (2000) test set, (ii) 7200 seconds for the Chen et al. (2015a, 2015b) test set, 14400 seconds for the Grossmann (2017) test set. Furthermore, each solver run stores the computed solution together with the following statistics: (i) elapsed time, (ii) number of explored nodes, (iii) upper and lower bound (relative gap). Directory `lib/exact_methods` contains the modules for solving the minimum number of matches problem via exact methods. Directory `data/mip_solutions` stores the computational results which have been obtained via the exact methods.
 
 Heuristic methods:
 This code classifies the heuristics for solving the minimum number of matches problem into three categories: (i) relaxation rounding, (ii) water filling, and (iii) greedy packing. In particular, the problem is solved via the following heuristics:
@@ -111,42 +111,42 @@ The experimental results are stored in `.sol` files containing the statistics an
 ## Repository Contents
 
 - `data` : 
-  all input and output data (problem instances and obtained results)
+  all input and output data (problem instances and obtained results).
 
   - `original_instances` : 
-    minimum utility cost problem instances and original `.gms` files
+    minimum utility cost problem instances and original `.gms` files.
 
   - `mip_instances` : 
-    minimum number of matches problem instances obtained after solving the minimum utility cost problem
+    minimum number of matches problem instances obtained after solving the minimum utility cost problem.
 
   - `mip_solutions` : 
-    computational results obtained via the exact methods
+    computational results obtained via the exact methods.
 
   - `heuristic_solutions` : 
-    computational results obtained via the heuristic methods
+    computational results obtained via the heuristic methods.
 
   - `bigM_parameters` : 
-    big-M parameters for each problem instance computed via the simple standard way, the Gundersen et al. (1997) way and the Letsios et al. (2017) way
+    big-M parameters for each problem instance computed via the simple standard way, the Gundersen et al. (1997) way and the Letsios et al. (2017) way.
 
 - `lib` : 
-  all required modules for the solution process
+  all required modules for the solution process.
 
   - `instance_generation` : 
-    generation and solving of minimum utility cost problem instances, generation of minimum number of matches problem instances
+    generation and solving of minimum utility cost problem instances, generation of minimum number of matches problem instances.
 
   - `problem_classes` : 
-    essential classes for representing the problem objects
+    essential classes for representing the problem objects.
 
   - `exact_methods` : 
-    modules implementing the exact methods
+    modules implementing the exact methods.
 
   - `heuristic_methods` : 
-    modules implementing the heuristic methods
+    modules implementing the heuristic methods.
 
   - `io_modules` : 
-    necessary modules for processing input and output files
+    necessary modules for processing input and output files.
 
 - `main.py` : 
-  root file performing all steps for obtaining the results 
+  root file performing all steps for obtaining the results .
 
 ## References
