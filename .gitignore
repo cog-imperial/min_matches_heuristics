@@ -3,6 +3,7 @@
 
 #*plot.pdf
 #*chart.pdf
+#*doc.pdf
 *.odt
 #*.tex
 #*.pkl
