@@ -150,3 +150,13 @@ The experimental results are stored in `.sol` files containing the statistics an
   root file performing all steps for obtaining the results .
 
 ## References
+
+- Chen, Y., I. Grossmann, D. Miller. 2015a. Large-scale MILP transshipment models for heat exchanger network synthesis. Available from CyberInfrastructure for MINLP [www.minlp.org, a collaboration of Carnegie Mellon University and IBM Research] at: www.minlp.org/library/problem/index.php?i=191. 
+
+- Chen, Y., I. E. Grossmann, D. C. Miller. 2015b. Computational strategies for large-scale MILP transshipment models for heat exchanger network synthesis. Comput Chem Eng 82 68–83. 
+
+- Furman, K. C. 2000. Analytical investigations in heat exchanger network synthesis. Ph.D. thesis, University of Illinois. 
+
+- Furman, K. C., N. V. Sahinidis. 2004. Approximation algorithms for the minimum number of matches problem in heat exchanger network synthesis. Ind Eng Chem Res 43 3554–3565. 
+
+- Grossmann, I. 2017. Personal communication.
