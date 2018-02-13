@@ -1,0 +1,99 @@
+
+Log started (V12.6.3.0) Thu Jan 25 18:37:30 2018
+
+New value for default parallel thread count: 1
+
+Problem '/tmp/tmp1ImaOZ.pyomo.lp' read.
+Read time = 0.00 sec. (0.10 ticks)
+
+Problem name         : /tmp/tmp1ImaOZ.pyomo.lp
+Objective sense      : Minimize
+Variables            :    1382  [Nneg: 1351,  Binary: 30,  General Integer: 1]
+Objective nonzeros   :       1
+Linear constraints   :     131  [Less: 30,  Equal: 101]
+  Nonzeros           :    4112
+  RHS nonzeros       :      49
+
+Variables            : Min LB: 0.000000         Max UB: 1.000000       
+Objective nonzeros   : Min   : 1.000000         Max   : 1.000000       
+Linear constraints   :
+  Nonzeros           : Min   : 1.000000         Max   : 6497970.       
+  RHS nonzeros       : Min   : 1.000000         Max   : 6497970.       
+Tried aggregator 2 times.
+MIP Presolve eliminated 52 rows and 978 columns.
+Aggregator did 1 substitutions.
+Reduced MIP has 78 rows, 403 columns, and 1149 nonzeros.
+Reduced MIP has 30 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (1.04 ticks)
+Found incumbent of value 30.000000 after 0.00 sec. (2.08 ticks)
+Probing time = 0.00 sec. (0.05 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 47 columns.
+Aggregator did 1 substitutions.
+Reduced MIP has 75 rows, 355 columns, and 1006 nonzeros.
+Reduced MIP has 30 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.62 ticks)
+Probing time = 0.00 sec. (0.05 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 75 rows, 355 columns, and 1006 nonzeros.
+Reduced MIP has 30 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.36 ticks)
+Probing time = 0.00 sec. (0.05 ticks)
+Clique table members: 5.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: none, using 1 thread.
+Root relaxation solution time = 0.00 sec. (0.77 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                           30.0000        0.0000           100.00%
+      0     0        6.6931    26       30.0000        6.6931      102   77.69%
+*     0+    0                           24.0000        6.6931            72.11%
+      0     0        7.0859    18       24.0000      Cuts: 96      578   70.48%
+*     0+    0                           18.0000        7.0859            60.63%
+      0     0        6.8278    18       18.0000      Cuts: 89      782   60.63%
+      0     0        7.0215    22       18.0000      Cuts: 93      953   60.63%
+      0     0        7.2389    20       18.0000     Cuts: 115     1136   59.78%
+      0     0        7.0279    12       18.0000      Cuts: 90     1390   59.78%
+*     0+    0                           15.0000        7.2389            51.74%
+      0     0        7.4396    21       15.0000      Cuts: 78     1589   50.40%
+      0     0        7.3126    21       15.0000     Cuts: 118     1815   50.40%
+*     0+    0                           12.0000        7.4396            38.00%
+*     0+    0                           11.0000        7.4396            32.37%
+      0     2        7.3126    21       11.0000        7.4396     1815   32.37%
+Elapsed time = 0.06 sec. (64.79 ticks, tree = 0.01 MB, solutions = 5)
+*    50+   30                           10.0000        7.8760            21.24%
+    305    69        8.0992    14       10.0000        8.3139    25752   16.86%
+    306    69        8.6753    14       10.0000        8.3139    25770   16.86%
+    307    70        8.0214     8       10.0000        8.3139    26173   16.86%
+    308    71        8.0232     7       10.0000        8.3139    26179   16.86%
+    309    71        8.3303     7       10.0000        8.3139    26195   16.86%
+    310    72        8.2910     6       10.0000        8.3139    26214   16.86%
+    311    73        8.2797     4       10.0000        8.3139    26230   16.86%
+    312    74        8.0072     3       10.0000        8.3139    26679   16.86%
+    313    75        8.3393     5       10.0000        8.3139    26696   16.86%
+
+Clique cuts applied:  1
+Cover cuts applied:  9
+Implied bound cuts applied:  116
+Flow cuts applied:  9
+Mixed integer rounding cuts applied:  5
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.06 sec. (64.84 ticks)
+Sequential b&c:
+  Real time             =    0.53 sec. (647.33 ticks)
+                          ------------
+Total (root+branch&cut) =    0.59 sec. (712.17 ticks)
+
+Solution pool: 6 solutions saved.
+
+MIP - Integer optimal solution:  Objective =  1.0000000000e+01
+Solution time =    0.59 sec.  Iterations = 64378  Nodes = 844
+Deterministic time = 712.18 ticks  (1209.38 ticks/sec)
+
+
+Incumbent solution written to file '/tmp/tmpvrSwPA.cplex.sol'.

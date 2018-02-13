@@ -187,7 +187,20 @@ def read_mip_instance(test_set,test_id):
 			R[t]=float(s[1])
 			
 	return Network(cost, n, m, 0, 0, k, QH, QC, [], [], R, None)
-			    
+      
+def read_mip_instance_heats(test_set,test_id):
+	
+	network = read_mip_instance(test_set,test_id)
+	hot_heats = []
+	cold_heats = []
+	
+	for i in range(network.n):
+		hot_heats.append(sum(network.QH[i]))
+	
+	for j in range(network.m):
+		cold_heats.append(sum(network.QC[j]))
+	
+	return (hot_heats, cold_heats)
 
 def read_packing_instance(test_set,test_id):
 	
@@ -274,6 +287,42 @@ def read_mip_solution(test_set,test_id,solver,mip_type):
 		if line.startswith('Lower bound:'): lower_bound = float(line.split()[2])
 		
 	return Solver_Statistics(elapsed_time,nodes_explored,lower_bound,upper_bound)
+      
+def read_mip_solution_heat_exchanges(test_set,test_id,solver,mip_type):
+  
+	f=open('data/mip_solutions/' + test_set + '/' + mip_type + '/' + test_id + '_' + solver + '.sol', 'r')
+	lines = f.readlines()
+	f.close()
+	
+	epsilon = 10**(-5)
+	
+	# Dictionary with heat exchanges
+	hex_dict = dict()
+	
+	for line in lines:
+		if line.startswith('y'): 
+			i = int(line.split('[')[1].split(',')[0])
+			j = int(line.split(',')[1].split(']')[0])
+			hex_dict[i,j] = 0
+			
+	for line in lines:
+		if line.startswith('q'): 
+			
+			if mip_type == 'transportation':
+				i = int(line.split('[')[1].split(',')[0])
+				j = int(line.split(',')[2].split(']')[0])
+				heat = float(line.split('=')[1])
+				if heat > epsilon:
+					hex_dict[i,j] += heat
+			
+			if mip_type == 'transshipment':
+				i = int(line.split('[')[1].split(',')[0])
+				j = int(line.split(',')[1].split(']')[0])
+				heat = float(line.split('=')[1])
+				if heat > epsilon:
+					hex_dict[i,j] += heat 
+		
+	return hex_dict
 
 
 def read_heuristic_solution(test_set,test_id,heuristic_type,heuristic):
@@ -288,6 +337,42 @@ def read_heuristic_solution(test_set,test_id,heuristic_type,heuristic):
 		
 	return (upper_bound,elapsed_time)
 
+
+def read_heuristic_solution_heat_exchanges(test_set,test_id,heuristic_type,heuristic):
+  
+	f=open('data/heuristic_solutions/' + test_set + '/' + heuristic_type + '/' + test_id + '_' + heuristic + '.sol', 'r')
+	lines = f.readlines()
+	f.close()
+	
+	epsilon = 10**(-5)
+	
+	# Dictionary with heat exchanges
+	hex_dict = dict()
+	
+	for line in lines:
+		if line.startswith('y'): 
+			i = int(line.split('[')[1].split(',')[0])
+			j = int(line.split(',')[1].split(']')[0])
+			hex_dict[i,j] = 0
+			
+	for line in lines:
+		if line.startswith('q'): 
+			
+			if heuristic_type == 'relaxation_rounding' or heuristic_type == 'greedy_packing':
+				i = int(line.split('[')[1].split(',')[0])
+				j = int(line.split(',')[2].split(']')[0])
+				heat = float(line.split('=')[1])
+				if heat > epsilon:
+					hex_dict[i,j] += heat
+			
+			if heuristic_type == 'water_filling':
+				i = int(line.split('[')[1].split(',')[0])
+				j = int(line.split(',')[1].split(']')[0])
+				heat = float(line.split('=')[1])
+				if heat > epsilon:
+					hex_dict[i,j] += heat
+		
+	return hex_dict
       
 def read_furman_sahinidis_paper_heuristic_results(results_path, heuristic):
   

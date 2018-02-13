@@ -96,6 +96,9 @@ def solve_transshipment_lp(test_set, test_id, solver, inst, min_utility_inst): #
 	model.zero_residual_constraint = Constraint(model.Rzero, rule=zero_residual_rule)
 	
 	opt = SolverFactory(solver)
+	opt.options['threads'] = 1
+	if test_set == 'large_scale':
+		opt.options['logfile'] = 'data/original_instances/' + test_set + '/log_files/' + test_id + '.log'
 	#opt.options['logfile'] = 'test_cases/mip_instances/'+test_set+'/'+test_id+'_'+solver+'.log'
 	lp_instance = model.create_instance()
 	results = opt.solve(lp_instance)

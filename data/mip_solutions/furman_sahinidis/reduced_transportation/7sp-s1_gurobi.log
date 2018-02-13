@@ -1,0 +1,24 @@
+
+Gurobi 6.5.2 (linux64) logging started Thu Jan 25 20:43:04 2018
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/reduced_transportation/7sp-s1_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 88 rows, 520 columns and 1538 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 8e+04]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 8e+04]
+Found heuristic solution: objective 10
+Presolve removed 73 rows and 476 columns
+Presolve time: 0.00s
+Presolved: 15 rows, 44 columns, 88 nonzeros
+Variable types: 44 continuous, 0 integer (0 binary)
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 1.000000000000e+01, best bound 1.000000000000e+01, gap 0.0%

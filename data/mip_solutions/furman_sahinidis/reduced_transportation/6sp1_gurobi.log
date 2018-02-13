@@ -1,0 +1,46 @@
+
+Gurobi 6.5.2 (linux64) logging started Thu Jan 25 20:43:02 2018
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/reduced_transportation/6sp1_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 56 rows, 266 columns and 782 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 6e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 6e+03]
+Found heuristic solution: objective 12
+Presolve removed 27 rows and 188 columns
+Presolve time: 0.00s
+Presolved: 29 rows, 78 columns, 211 nonzeros
+Variable types: 67 continuous, 11 integer (11 binary)
+
+Root relaxation: objective 4.003805e+00, 52 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    4.00381    0    7   12.00000    4.00381  66.6%     -    0s
+H    0     0                       8.0000000    4.00381  50.0%     -    0s
+H    0     0                       7.0000000    4.00381  42.8%     -    0s
+     0     0    4.48396    0    8    7.00000    4.48396  35.9%     -    0s
+     0     0    4.57747    0    4    7.00000    4.57747  34.6%     -    0s
+     0     0    5.00000    0    7    7.00000    5.00000  28.6%     -    0s
+H    0     0                       6.0000000    5.00000  16.7%     -    0s
+     0     0    5.00000    0    4    6.00000    5.00000  16.7%     -    0s
+     0     0     cutoff    0         6.00000    5.00001  16.7%     -    0s
+
+Cutting planes:
+  Cover: 4
+  Implied bound: 5
+  MIR: 1
+  Flow cover: 7
+  Network: 2
+
+Explored 0 nodes (213 simplex iterations) in 0.01 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 6.000000000000e+00, best bound 6.000000000000e+00, gap 0.0%

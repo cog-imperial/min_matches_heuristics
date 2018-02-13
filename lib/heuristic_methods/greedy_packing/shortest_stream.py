@@ -61,6 +61,8 @@ def shortest_stream(inst):
 			M.append((i, matched_j))
 			y[i][matched_j]=1
 			
+			print('Matches: ' + str(len(M)))
+			
 			for s in range(k):
 				for t in range(k):
 					q[i][s][matched_j][t] = matched_q[s][t]

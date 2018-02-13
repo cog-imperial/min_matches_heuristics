@@ -1,0 +1,196 @@
+
+Log started (V12.6.3.0) Wed Jan 31 14:41:21 2018
+
+New value for default parallel thread count: 1
+
+Problem '/tmp/tmp6wOFt1.pyomo.lp' read.
+Read time = 0.00 sec. (0.02 ticks)
+
+Problem name         : /tmp/tmp6wOFt1.pyomo.lp
+Objective sense      : Minimize
+Variables            :     276
+Objective nonzeros   :       1
+Linear constraints   :     275  [Equal: 275]
+  Nonzeros           :     730
+  RHS nonzeros       :      92
+
+Variables            : Min LB: 0.000000         Max UB: all infinite   
+Objective nonzeros   : Min   : 1.000000         Max   : 1.000000       
+Linear constraints   :
+  Nonzeros           : Min   : 1.000000         Max   : 80.00000       
+  RHS nonzeros       : Min   : 0.8100000        Max   : 1008.900       
+Tried aggregator 1 time.
+LP Presolve eliminated 245 rows and 246 columns.
+Aggregator did 30 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.12 ticks)
+
+Dual simplex - Optimal:  Objective =  6.0790180000e+05
+Solution time =    0.00 sec.  Iterations = 0 (0)
+Deterministic time = 0.21 ticks  (208.70 ticks/sec)
+
+
+Solution written to file '/tmp/tmpO6ZXd0.cplex.sol'.
+
+Log started (V12.6.3.0) Wed Jan 31 14:42:30 2018
+
+New value for default parallel thread count: 1
+
+Problem '/tmp/tmpcM00We.pyomo.lp' read.
+Read time = 0.00 sec. (0.03 ticks)
+
+Problem name         : /tmp/tmpcM00We.pyomo.lp
+Objective sense      : Minimize
+Variables            :     318
+Objective nonzeros   :       1
+Linear constraints   :     317  [Equal: 317]
+  Nonzeros           :     842
+  RHS nonzeros       :     106
+
+Variables            : Min LB: 0.000000         Max UB: all infinite   
+Objective nonzeros   : Min   : 1.000000         Max   : 1.000000       
+Linear constraints   :
+  Nonzeros           : Min   : 1.000000         Max   : 80.00000       
+  RHS nonzeros       : Min   : 1.000000         Max   : 1368.750       
+Tried aggregator 1 time.
+LP Presolve eliminated 315 rows and 316 columns.
+Aggregator did 2 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.13 ticks)
+
+Dual simplex - Optimal:  Objective =  1.2572758000e+06
+Solution time =    0.00 sec.  Iterations = 0 (0)
+Deterministic time = 0.24 ticks  (236.28 ticks/sec)
+
+
+Solution written to file '/tmp/tmpH9uZet.cplex.sol'.
+
+Log started (V12.6.3.0) Wed Jan 31 14:43:09 2018
+
+New value for default parallel thread count: 1
+
+Problem '/tmp/tmph5wxzi.pyomo.lp' read.
+Read time = 0.00 sec. (0.03 ticks)
+
+Problem name         : /tmp/tmph5wxzi.pyomo.lp
+Objective sense      : Minimize
+Variables            :     363
+Objective nonzeros   :       1
+Linear constraints   :     362  [Equal: 362]
+  Nonzeros           :     962
+  RHS nonzeros       :     121
+
+Variables            : Min LB: 0.000000         Max UB: all infinite   
+Objective nonzeros   : Min   : 1.000000         Max   : 1.000000       
+Linear constraints   :
+  Nonzeros           : Min   : 1.000000         Max   : 80.00000       
+  RHS nonzeros       : Min   : 1.000000         Max   : 1028.770       
+Tried aggregator 1 time.
+LP Presolve eliminated 362 rows and 363 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.15 ticks)
+
+Dual simplex - Optimal:  Objective =  1.0872946000e+06
+Solution time =    0.00 sec.  Iterations = 0 (0)
+Deterministic time = 0.27 ticks  (265.49 ticks/sec)
+
+
+Solution written to file '/tmp/tmp93Ja2m.cplex.sol'.
+
+Log started (V12.6.3.0) Wed Jan 31 14:47:31 2018
+
+New value for default parallel thread count: 1
+
+Problem '/tmp/tmpUe9kcH.pyomo.lp' read.
+Read time = 0.00 sec. (0.03 ticks)
+
+Problem name         : /tmp/tmpUe9kcH.pyomo.lp
+Objective sense      : Minimize
+Variables            :     351
+Objective nonzeros   :       1
+Linear constraints   :     350  [Equal: 350]
+  Nonzeros           :     930
+  RHS nonzeros       :     117
+
+Variables            : Min LB: 0.000000         Max UB: all infinite   
+Objective nonzeros   : Min   : 1.000000         Max   : 1.000000       
+Linear constraints   :
+  Nonzeros           : Min   : 1.000000         Max   : 80.00000       
+  RHS nonzeros       : Min   : 0.5300000        Max   : 607.9000       
+Tried aggregator 1 time.
+LP Presolve eliminated 312 rows and 313 columns.
+Aggregator did 38 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.15 ticks)
+
+Dual simplex - Optimal:  Objective =  6.1553480000e+05
+Solution time =    0.00 sec.  Iterations = 0 (0)
+Deterministic time = 0.26 ticks  (264.46 ticks/sec)
+
+
+Solution written to file '/tmp/tmp4v8NTx.cplex.sol'.
+
+Log started (V12.6.3.0) Wed Jan 31 14:48:13 2018
+
+New value for default parallel thread count: 1
+
+Problem '/tmp/tmpErkiRI.pyomo.lp' read.
+Read time = 0.00 sec. (0.03 ticks)
+
+Problem name         : /tmp/tmpErkiRI.pyomo.lp
+Objective sense      : Minimize
+Variables            :     354
+Objective nonzeros   :       1
+Linear constraints   :     353  [Equal: 353]
+  Nonzeros           :     938
+  RHS nonzeros       :     118
+
+Variables            : Min LB: 0.000000         Max UB: all infinite   
+Objective nonzeros   : Min   : 1.000000         Max   : 1.000000       
+Linear constraints   :
+  Nonzeros           : Min   : 1.000000         Max   : 80.00000       
+  RHS nonzeros       : Min   : 1.000000         Max   : 767.3800       
+Tried aggregator 1 time.
+LP Presolve eliminated 353 rows and 354 columns.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.14 ticks)
+
+Dual simplex - Optimal:  Objective =  7.7648680000e+05
+Solution time =    0.00 sec.  Iterations = 0 (0)
+Deterministic time = 0.26 ticks  (260.87 ticks/sec)
+
+
+Solution written to file '/tmp/tmp2Xmh4i.cplex.sol'.
+
+Log started (V12.6.3.0) Wed Jan 31 14:48:55 2018
+
+New value for default parallel thread count: 1
+
+Problem '/tmp/tmp3LPfdz.pyomo.lp' read.
+Read time = 0.00 sec. (0.04 ticks)
+
+Problem name         : /tmp/tmp3LPfdz.pyomo.lp
+Objective sense      : Minimize
+Variables            :     399
+Objective nonzeros   :       1
+Linear constraints   :     398  [Equal: 398]
+  Nonzeros           :    1058
+  RHS nonzeros       :     133
+
+Variables            : Min LB: 0.000000         Max UB: all infinite   
+Objective nonzeros   : Min   : 1.000000         Max   : 1.000000       
+Linear constraints   :
+  Nonzeros           : Min   : 1.000000         Max   : 80.00000       
+  RHS nonzeros       : Min   : 1.000000         Max   : 1261.280       
+Tried aggregator 1 time.
+LP Presolve eliminated 391 rows and 392 columns.
+Aggregator did 7 substitutions.
+All rows and columns eliminated.
+Presolve time = 0.00 sec. (0.17 ticks)
+
+Dual simplex - Optimal:  Objective =  1.4223338000e+06
+Solution time =    0.00 sec.  Iterations = 0 (0)
+Deterministic time = 0.30 ticks  (296.94 ticks/sec)
+
+
+Solution written to file '/tmp/tmp1P2Xja.cplex.sol'.

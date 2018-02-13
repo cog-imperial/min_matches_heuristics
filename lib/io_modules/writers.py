@@ -28,7 +28,23 @@ def write_min_utility_random_dat_file(path,cat,inst,trial):
 	for utility in inst.CU: f.write('CU' + str(inst.CU.index(utility)) + ' ' +  str(utility.Tin) + ' ' +  str(utility.Tout) + ' ' + str(utility.cost) + '\n' )
 	
 	f.close()
+
+def write_large_scale_min_utility_dat_file(path, inst, trial):
 	
+	file_name = 'large_scale' + str(trial) +'.dat'
+	
+	f=open(path+file_name,'w')
+	
+	f.write('DTmin ' + str(inst.DTmin) + '\n')
+	
+	for stream in inst.HS: f.write('HS' + str(inst.HS.index(stream)) + ' ' + str(stream.Tin) + ' ' +  str(stream.Tout) + ' ' + str(stream.FCp) + '\n')
+	for stream in inst.CS: f.write('CS' + str(inst.CS.index(stream)) + ' ' + str(stream.Tin) + ' ' +  str(stream.Tout) + ' ' + str(stream.FCp) + '\n')
+	for utility in inst.HU: f.write('HU' + str(inst.HU.index(utility)) + ' ' +  str(utility.Tin) + ' ' +  str(utility.Tout) + ' ' + str(utility.cost) + '\n')
+	for utility in inst.CU: f.write('CU' + str(inst.CU.index(utility)) + ' ' +  str(utility.Tin) + ' ' +  str(utility.Tout) + ' ' + str(utility.cost) + '\n' )
+	
+	f.close()
+
+
 def write_mip_instance(test_set,test_id,network):
 
 	#f=open('data/mip_instances/' + test_set + '/' + test_id + '_' + solver + '.dat', 'w')
@@ -103,7 +119,7 @@ def write_mip_solution(test_set,test_id,solver,mip_solution,stats):
 	
 	epsilon=1e-10
 	
-	if mip_solution.model == 'transshipment' or mip_solution.model == 'transportation': 
+	if mip_solution.model == 'transshipment' or mip_solution.model == 'transportation' or mip_solution.model == 'reduced_transportation': 
 	  
 		f=open('data/mip_solutions/'+test_set+'/'+mip_solution.model+'/'+test_id+'_'+solver+'.sol', 'w')
 		f.write('Elapsed time: ' + str(stats.elapsed_time) + '\n')

@@ -1,0 +1,58 @@
+
+Gurobi 6.5.2 (linux64) logging started Thu Jan 25 18:37:31 2018
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/reduced_transportation/10sp1_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 131 rows, 1382 columns and 4112 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 6e+06]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 6e+06]
+Found heuristic solution: objective 29
+Presolve removed 53 rows and 979 columns
+Presolve time: 0.00s
+Presolved: 78 rows, 403 columns, 1149 nonzeros
+Variable types: 373 continuous, 30 integer (30 binary)
+
+Root relaxation: objective 7.004703e+00, 142 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    7.00470    0   26   29.00000    7.00470  75.8%     -    0s
+H    0     0                      26.0000000    7.00470  73.1%     -    0s
+H    0     0                      25.0000000    7.00470  72.0%     -    0s
+     0     0    8.88594    0   23   25.00000    8.88594  64.5%     -    0s
+H    0     0                      23.0000000    8.88594  61.4%     -    0s
+     0     0    8.88594    0   18   23.00000    8.88594  61.4%     -    0s
+     0     0    9.12212    0   19   23.00000    9.12212  60.3%     -    0s
+H    0     0                      20.0000000    9.12212  54.4%     -    0s
+     0     0    9.12212    0   17   20.00000    9.12212  54.4%     -    0s
+     0     0    9.12212    0   22   20.00000    9.12212  54.4%     -    0s
+H    0     0                      19.0000000    9.12212  52.0%     -    0s
+H    0     0                      17.0000000    9.12212  46.3%     -    0s
+H    0     0                      16.0000000    9.12212  43.0%     -    0s
+H    0     0                      15.0000000    9.12212  39.2%     -    0s
+H    0     0                      14.0000000    9.12212  34.8%     -    0s
+H    0     0                      13.0000000    9.12212  29.8%     -    0s
+     0     2    9.12212    0   22   13.00000    9.12212  29.8%     -    0s
+H   21    17                      12.0000000    9.12212  24.0%   9.7    0s
+H   43    18                      11.0000000    9.12212  17.1%  11.6    0s
+H   54     0                      10.0000000    9.12212  8.78%  11.2    0s
+
+Cutting planes:
+  Gomory: 2
+  Cover: 2
+  Implied bound: 28
+  MIR: 4
+  Flow cover: 17
+  Network: 3
+
+Explored 54 nodes (1302 simplex iterations) in 0.04 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 1.000000000000e+01, best bound 1.000000000000e+01, gap 0.0%

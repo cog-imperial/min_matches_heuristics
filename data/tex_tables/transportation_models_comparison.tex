@@ -1,0 +1,68 @@
+\begin{table} 
+\scriptsize 
+\begin{adjustbox}{center} 
+\begin{tabular}{|ccccccccccccc|}
+\hline 
+\multirow{2}{*} {\textbf{Test Case}} & \multicolumn{3}{|c|} {\textbf{CPLEX Transportation}} & \multicolumn{3}{c|} {\textbf{CPLEX Reduced Transportation}} & \multicolumn{3}{c|} {\textbf{Gurobi Transportation}} & \multicolumn{3}{c|} {\textbf{Gurobi Reduced Transportation}} \\ 
+\cline{2-13} & \multicolumn{1}{|c} {\textbf{Value}} & \textbf{Time} & \textbf{Gap} & \multicolumn{1}{|c} {\textbf{Value}} & \textbf{Time} & \textbf{Gap} & \multicolumn{1}{|c} {\textbf{Value}} & \textbf{Time} & \textbf{Gap} & \multicolumn{1}{|c} {\textbf{Value}} & \textbf{Time} & \textbf{Gap} \\ 
+\hline 
+\multicolumn{13}{|l|} {\textbf{Furman Sahinidis Test Set \cite{furman:2004} (30min time limit)}} \\ 
+10sp-la1 & 12 & 0.04 &  & 12 & 0.05 &  & 12 & 0.10 &  & 12 & 0.13 &  \\ 
+10sp-ol1 & 14 & 0.06 &  & 14 & 0.04 &  & 14 & 0.13 &  & 14 & 0.11 &  \\ 
+10sp1 & 10 & 0.51 &  & 10 & 0.65 &  & 10 & 0.24 &  & 10 & 0.13 &  \\ 
+12sp1 & 12 & 0.08 &  & 12 & 0.08 &  & 12 & 0.16 &  & 12 & 0.13 &  \\ 
+14sp1 & 14 & 145.50 &  & 14 & 144.87 &  & 14 & 170.45 &  & 14 & 172.62 &  \\ 
+15sp-tkm & 19 & 0.17 &  & 19 & 0.14 &  & 19 & 0.28 &  & 19 & 0.20 &  \\ 
+20sp1 & 19 & * & 19\% & 19 & * & 19\% & 19 & * & 21\% & 19 & * & 21\% \\ 
+22sp-ph & 26 & 0.25 &  & 26 & 0.13 &  & 26 & 0.44 &  & 26 & 0.24 &  \\ 
+22sp1 & 25 & * & 12\% & 25 & * & 12\% & 25 & * & 12\% & 25 & * & 12\% \\ 
+23sp1 & 23 & * & 28\% & 23 & * & 28\% & 23 & * & 30\% & 23 & * & 30\% \\ 
+28sp-as1 & 30 & 0.19 &  & 30 & 0.09 &  & 30 & 0.44 &  & 30 & 0.23 &  \\ 
+37sp-yfyv & 36 & 54.80 &  & 36 & 32.86 &  & 36 & 20.40 &  & 36 & 89.50 &  \\ 
+4sp1 & 5 & 0.03 &  & 5 & 0.02 &  & 5 & 0.10 &  & 5 & 0.08 &  \\ 
+6sp-cf1 & 6 & 0.03 &  & 6 & 0.02 &  & 6 & 0.09 &  & 6 & 0.08 &  \\ 
+6sp-gg1 & 3 & 0.02 &  & 3 & 0.02 &  & 3 & 0.09 &  & 3 & 0.08 &  \\ 
+6sp1 & 6 & 0.03 &  & 6 & 0.02 &  & 6 & 0.30 &  & 6 & 0.08 &  \\ 
+7sp-cm1 & 10 & 0.02 &  & 10 & 0.02 &  & 10 & 0.09 &  & 10 & 0.09 &  \\ 
+7sp-s1 & 10 & 0.02 &  & 10 & 0.02 &  & 10 & 0.09 &  & 10 & 0.12 &  \\ 
+7sp-torw1 & 10 & 0.03 &  & 10 & 0.03 &  & 10 & 0.10 &  & 10 & 0.09 &  \\ 
+7sp1 & 7 & 0.03 &  & 7 & 0.23 &  & 7 & 0.09 &  & 7 & 0.08 &  \\ 
+7sp2 & 7 & 0.05 &  & 7 & 0.04 &  & 7 & 0.09 &  & 7 & 0.09 &  \\ 
+7sp4 & 8 & 0.03 &  & 8 & 0.02 &  & 8 & 0.10 &  & 8 & 0.10 &  \\ 
+8sp-fs1 & 11 & 0.03 &  & 11 & 0.05 &  & 11 & 0.10 &  & 11 & 0.10 &  \\ 
+8sp1 & 9 & 0.04 &  & 9 & 0.07 &  & 9 & 0.14 &  & 9 & 0.13 &  \\ 
+9sp-al1 & 12 & 0.04 &  & 12 & 0.03 &  & 12 & 0.11 &  & 12 & 0.10 &  \\ 
+9sp-has1 & 13 & 0.04 &  & 13 & 0.04 &  & 13 & 0.12 &  & 13 & 0.10 &  \\ 
+\hline 
+\multicolumn{13}{|l|} {\textbf{Chen Grossmann Miller Test Set \cite{minlp,chen:2015} (2h time limit)}} \\ 
+balanced10 & 25 & * & 6\% & 25 & * & 6\% & 25 & * & 4\% & 25 & * & 8\% \\ 
+balanced12 & 30 & * & 16\% & 30 & * & 16\% & 29 & * & 13\% & 29 & * & 13\% \\ 
+balanced15 & 36 & * & 19\% & 37 & * & 21\% & 35 & * & 17\% & 36 & * & 19\% \\ 
+balanced5 & 14 & 0.27 &  & 14 & 0.26 &  & 14 & 0.43 &  & 14 & 0.33 &  \\ 
+balanced8 & 20 & 180.84 &  & 20 & 885.66 &  & 20 & 997.01 &  & 20 & 214.00 &  \\ 
+unbalanced10 & 25 & 36.24 &  & 25 & 64.92 &  & 25 & 46.81 &  & 25 & 61.19 &  \\ 
+unbalanced15 & 36 & * & 8\% & 36 & * & 9\% & 36 & * & 8\% & 36 & * & 8\% \\ 
+unbalanced17 & 43 & * & 15\% & 43 & * & 15\% & 43 & * & 13\% & 43 & * & 13\% \\ 
+unbalanced20 & 55 & * & 22\% & 53 & * & 21\% & 51 & * & 17\% & 53 & * & 20\% \\ 
+unbalanced5 & 16 & 0.09 &  & 16 & 0.08 &  & 16 & 0.26 &  & 16 & 0.22 &  \\ 
+\hline 
+\multicolumn{13}{|l|} {\textbf{Grossmann Random Test Set \cite{grossmann:2017} (4h time limit)}} \\ 
+balanced12\_random0 & 29 & * & 13\% & 28 & * & 8\% & 29 & * & 13\% & 29 & * & 13\% \\ 
+balanced12\_random1 & 29 & * & 13\% & 29 & * & 11\% & 30 & * & 13\% & 29 & * & 10\% \\ 
+balanced12\_random2 & 30 & * & 16\% & 29 & * & 13\% & 29 & * & 10\% & 28 & * & 7\% \\ 
+balanced15\_random0 & 36 & * & 18\% & 36 & * & 18\% & 35 & * & 14\% & 36 & * & 19\% \\ 
+balanced15\_random1 & 36 & * & 18\% & 36 & * & 18\% & 35 & * & 17\% & 35 & * & 17\% \\ 
+balanced15\_random2 & 36 & * & 17\% & 37 & * & 19\% & 36 & * & 16\% & 36 & * & 19\% \\ 
+unbalanced17\_random0 & 44 & * & 16\% & 43 & * & 14\% & 43 & * & 13\% & 43 & * & 13\% \\ 
+unbalanced17\_random1 & 44 & * & 16\% & 44 & * & 15\% & 44 & * & 15\% & 44 & * & 15\% \\ 
+unbalanced17\_random2 & 43 & * & 13\% & 43 & * & 14\% & 43 & * & 13\% & 44 & * & 13\% \\ 
+unbalanced20\_random0 & 51 & * & 16\% & 51 & * & 16\% & 52 & * & 19\% & 52 & * & 19\% \\ 
+unbalanced20\_random1 & 52 & * & 18\% & 52 & * & 18\% & 52 & * & 19\% & 52 & * & 17\% \\ 
+unbalanced20\_random2 & 51 & * & 16\% & 51 & * & 17\% & 52 & * & 19\% & 53 & * & 20\% \\ 
+\hline 
+\end{tabular} 
+\end{adjustbox} 
+\vspace*{-0.2cm} 
+\caption{Computational results using exact solvers CPLEX 12.6.3 and Gurobi 6.5.2 with relative gap 4\%. The relative gap is (best incumbent - best lower bound) / best incumbent and  * indicates timeout. All exact method results are available online in \cite{source_code}.} 
+\label{Table:Transportation_Models} 
+\end{table} 

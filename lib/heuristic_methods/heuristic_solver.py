@@ -14,8 +14,8 @@ from water_filling.water_filling_mip import water_filling_mip
 
 def solve_heuristically():
 
-	test_sets = ['furman_sahinidis','chen_grossmann_miller','grossmann_random']
-	test_sets = ['grossmann_random']
+	#test_sets = ['furman_sahinidis','chen_grossmann_miller','grossmann_random']
+	test_sets = ['large_scale']
 
 	for test_set in test_sets:
 		dat_files_path = 'data/mip_instances/'+test_set
@@ -24,15 +24,16 @@ def solve_heuristically():
 		test_ids.sort()
 
 		for test_id in test_ids:
-			if '~' not in test_id:
+			if '~' not in test_id and test_id in ['large_scale4.dat', 'large_scale5.dat', 'large_scale6.dat']:
 				test_id=test_id.replace('.dat','')
 				print(test_id)
 				
 				network=read_mip_instance(test_set,test_id)
 				
 				# PACKING HEURISTICS
-				for heuristic in ['largest_heat_match_lp_based', 'largest_heat_match_greedy', 'largest_fraction_match', 'shortest_stream'] :
-					
+				#for heuristic in ['largest_heat_match_lp_based', 'largest_heat_match_greedy', 'largest_fraction_match', 'shortest_stream'] :
+				for heuristic in ['shortest_stream']:
+					print(heuristic)
 					#if heuristic == 'largest_heat_match_lp_based': 
 					#	apply_heuristic(test_set, test_id, largest_heat_match_lp_based, heuristic)
 					
@@ -47,7 +48,9 @@ def solve_heuristically():
 				
 				
 				# RELAXATION ROUNDING METHODS
-				for heuristic in ['lp_rounding', 'lr_rounding', 'cr_rounding']:
+				#for heuristic in ['lp_rounding', 'lr_rounding', 'cr_rounding']:
+				for heuristic in ['lp_rounding']:
+					print(heuristic)
 					
 					if heuristic == 'lp_rounding': 
 						apply_heuristic(test_set, test_id, lp_rounding, heuristic)
@@ -60,7 +63,9 @@ def solve_heuristically():
 				
 				
 				# WATER FILLING METHODS
-				for heuristic in ['water_filling_greedy', 'water_filling_mip'] :
+				#for heuristic in ['water_filling_greedy', 'water_filling_mip'] :
+				for heuristic in ['water_filling_greedy']:
+					print(heuristic)
 					
 					if heuristic == 'water_filling_greedy':
 						apply_heuristic(test_set, test_id, water_filling_greedy, heuristic)

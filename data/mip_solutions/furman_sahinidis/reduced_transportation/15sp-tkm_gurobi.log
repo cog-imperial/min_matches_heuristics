@@ -1,0 +1,48 @@
+
+Gurobi 6.5.2 (linux64) logging started Thu Jan 25 18:37:33 2018
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/reduced_transportation/15sp-tkm_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 327 rows, 8472 columns and 25318 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 8e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 1e+04]
+Presolve removed 224 rows and 7872 columns
+Presolve time: 0.01s
+Presolved: 103 rows, 600 columns, 1717 nonzeros
+Variable types: 559 continuous, 41 integer (41 binary)
+
+Root relaxation: objective 1.476897e+01, 319 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0   14.76897    0   14          -   14.76897      -     -    0s
+H    0     0                      20.0000000   14.76897  26.2%     -    0s
+     0     0   16.79519    0   13   20.00000   16.79519  16.0%     -    0s
+     0     0   16.80857    0   11   20.00000   16.80857  16.0%     -    0s
+     0     0   17.03172    0   11   20.00000   17.03172  14.8%     -    0s
+     0     0   17.03845    0    9   20.00000   17.03845  14.8%     -    0s
+     0     0   17.03845    0    5   20.00000   17.03845  14.8%     -    0s
+     0     0   17.04576    0   10   20.00000   17.04576  14.8%     -    0s
+     0     0   17.05043    0   13   20.00000   17.05043  14.7%     -    0s
+     0     0   17.05043    0   13   20.00000   17.05043  14.7%     -    0s
+     0     2   17.05263    0   13   20.00000   17.05263  14.7%     -    0s
+H    2     2                      19.0000000   17.06645  10.2%  51.5    0s
+
+Cutting planes:
+  Cover: 4
+  Implied bound: 23
+  MIR: 7
+  Flow cover: 25
+  Network: 4
+
+Explored 108 nodes (2895 simplex iterations) in 0.08 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 1.900000000000e+01, best bound 1.900000000000e+01, gap 0.0%

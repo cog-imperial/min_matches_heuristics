@@ -1,6 +1,6 @@
 from __future__ import print_function, division
 from os import listdir
-from readers import read_mip_instance, read_mip_solution, read_heuristic_solution, read_furman_sahinidis_paper_mip_results, read_furman_sahinidis_paper_heuristic_results, read_furman_sahinidis_test_set_references
+from readers import read_mip_instance, read_mip_solution, read_heuristic_solution, read_furman_sahinidis_paper_mip_results, read_furman_sahinidis_paper_heuristic_results, read_furman_sahinidis_test_set_references, read_mip_instance_heats, read_mip_solution_heat_exchanges, read_heuristic_solution_heat_exchanges
 from latex_table import *
 import numpy as np 
 import matplotlib.pyplot as plt
@@ -9,6 +9,7 @@ from math import log10
 from bigM_comparator import bigM_compare
 import pickle
 from matplotlib.backends.backend_pdf import PdfPages
+import pandas as pd
 
 def get_mip_results():
 
@@ -283,7 +284,7 @@ def generate_heuristic_methods_table():
 					for (tset, tid, meth, heur, upper_bound, elapsed_time) in heuristic_results:
 						if test_set == tset and test_id == tid and meth == method and heur == heuristic:
 							upper_bound_results.append(int(upper_bound))
-							elapsed_time_results.append(format(float(elapsed_time),'.2f'))
+							elapsed_time_results.append(format(float(elapsed_time),'.4f'))
 			
 				method = 'water_filling'
 				heuristics = ['water_filling_greedy', 'water_filling_mip']
@@ -292,7 +293,7 @@ def generate_heuristic_methods_table():
 					for (tset, tid, meth, heur, upper_bound, elapsed_time) in heuristic_results:
 						if test_set == tset and test_id == tid and meth == method and heur == heuristic:
 							upper_bound_results.append(int(upper_bound))
-							elapsed_time_results.append(format(float(elapsed_time),'.2f'))
+							elapsed_time_results.append(format(float(elapsed_time),'.4f'))
 			
 				method = 'greedy_packing'
 				heuristics = ['largest_heat_match_greedy', 'largest_fraction_match', 'largest_heat_match_lp_based', 'shortest_stream']
@@ -301,7 +302,7 @@ def generate_heuristic_methods_table():
 					for (tset, tid, meth, heur, upper_bound, elapsed_time) in heuristic_results:
 						if test_set == tset and test_id == tid and meth == method and heur == heuristic:
 							upper_bound_results.append(int(upper_bound))
-							elapsed_time_results.append(format(float(elapsed_time),'.2f'))
+							elapsed_time_results.append(format(float(elapsed_time),'.4f'))
 			
 				solver = 'cplex'
 				model = 'transshipment'
@@ -310,7 +311,7 @@ def generate_heuristic_methods_table():
 					if test_set == tset and test_id == tid and solv == solver and mod == model:
 						if float(stats.elapsed_time) < timeout:
 							upper_bound_results.append(bold_element(str(int(stats.upper_bound))))
-							elapsed_time_results.append(bold_element(str(format(float(stats.elapsed_time), '.2f'))))
+							elapsed_time_results.append(bold_element(str(format(float(stats.elapsed_time), '.4f'))))
 						else:
 							upper_bound_results.append(bold_element(str(int(stats.upper_bound))+'*'))
 							elapsed_time_results.append(bold_element('*'))
@@ -915,5 +916,635 @@ def generate_bigM_comparison_table():
 	write_vspace(f,'-0.2cm')
 	write_caption(f,'Comparison of the Fractional LP Rounding and Lagrangian Relaxation Rounding upper bounds as well as the fractional relaxation lower bound using the different known ways for computing the bigM parameters, namely (i) the simple, (ii) the \\citet{gundersen:1997} (GTA97) and (iii) our greedy (LKM17).')
 	write_label(f,'Table:BigM_Comparisons')
+	write_end_table(f)
+	f.close()
+	
+def get_heuristic_solution():
+
+	test_sets = ['furman_sahinidis', 'chen_grossmann_miller', 'grossmann_random']
+	methods = ['greedy_packing', 'water_filling', 'relaxation_rounding']
+	results = []
+	
+	for test_set in test_sets:
+	
+		for method in methods:
+		
+			sol_files_path = 'data/heuristic_solutions/'+test_set+'/'+method+'/'
+			sol_files = listdir(sol_files_path) 
+		
+			for sol_file in sol_files :
+				
+				if test_set in ['furman_sahinidis', 'chen_grossmann_miller']:
+					test_id = sol_file.replace('.sol','').split('_', 1)[0]
+					heuristic = sol_file.replace('.sol','').split('_', 1)[1]
+					
+				if test_set in ['grossmann_random']:
+					test_id = sol_file.replace('.sol','').split('_', 2)[0] + '_' + sol_file.replace('.sol','').split('_', 2)[1]
+					heuristic = sol_file.replace('.sol','').split('_', 2)[2]
+				
+				(upper_bound, elapsed_time) = read_heuristic_solution(test_set, test_id, method, heuristic)
+				results.append((test_set, test_id, method, heuristic, upper_bound, elapsed_time))
+	
+	test_set = 'furman_sahinidis'
+	method = 'furman_sahinidis_paper'
+	results_path = 'data/heuristic_solutions/'+test_set+'/'+method+'/'
+	
+	heuristics = ['lp_rounding', 'lr_rounding', 'greedy']
+	
+	for heuristic in heuristics:
+		furman_sahinidis_results = read_furman_sahinidis_paper_heuristic_results(results_path, heuristic)
+		
+		for (test_id, upper_bound) in furman_sahinidis_results:
+			elapsed_time = 0
+			results.append((test_set, test_id, method, heuristic, upper_bound, elapsed_time))
+		
+	return results
+
+def generate_solutions_excel():
+	
+	test_sets=['furman_sahinidis','chen_grossmann_miller','grossmann_random']
+	solvers = ['cplex', 'gurobi']
+	models = ['transshipment', 'transportation']
+	
+	for test_set in test_sets:
+		dat_files_path='data/mip_instances/'+test_set
+		test_ids=listdir(dat_files_path) 
+		
+		for test_id in test_ids:
+			if '~' not in test_id:
+				
+				test_id=test_id.replace('.dat','') 
+				
+				(hot_heats, cold_heats) = read_mip_instance_heats(test_set,test_id)
+				
+				df_hot_streams = ['H' + str(i) + ' ' + str(hot_heats[i]) for i in range(len(hot_heats))]
+				df_cold_streams = ['C' + str(j) + ' ' + str(cold_heats[j]) for j in range(len(cold_heats))]
+				
+				num = max(len(df_hot_streams), len(df_cold_streams))
+				
+				for solver in solvers:
+					for model in models:
+						hex_dict = read_mip_solution_heat_exchanges(test_set, test_id, solver, model)
+						if solver == 'cplex' and model == 'transportation':
+							df_cplex_transp = ['H' + str(i) + '-' + 'C' + str(j) + ' ' + str(round(hex_dict[i,j],2)) for (i,j) in hex_dict.keys()]
+							num = max(num, len(df_cplex_transp))
+						if solver == 'gurobi' and model == 'transportation':
+							df_gurobi_transp = ['H' + str(i) + '-' + 'C' + str(j) + ' ' + str(round(hex_dict[i,j],2)) for (i,j) in hex_dict.keys()]
+							num = max(num, len(df_gurobi_transp))
+						if solver == 'cplex' and model == 'transshipment':
+							df_cplex_transs = ['H' + str(i) + '-' + 'C' + str(j) + ' ' + str(round(hex_dict[i,j],2)) for (i,j) in hex_dict.keys()]
+							num = max(num, len(df_cplex_transs))
+						if solver == 'gurobi' and model == 'transshipment':
+							df_gurobi_transs = ['H' + str(i) + '-' + 'C' + str(j) + ' ' + str(round(hex_dict[i,j],2)) for (i,j) in hex_dict.keys()]
+							num = max(num, len(df_gurobi_transs))
+				
+				heuristic_type = 'relaxation_rounding'
+				heuristics = ['lp_rounding', 'lr_rounding', 'cr_rounding']
+				
+				for heuristic in heuristics:
+					hex_dict = read_heuristic_solution_heat_exchanges(test_set,test_id,heuristic_type,heuristic)
+					
+					if heuristic == 'lp_rounding':
+						df_lp_rounding = ['H' + str(i) + '-' + 'C' + str(j) + ' ' + str(round(hex_dict[i,j],2)) for (i,j) in hex_dict.keys()]
+						num = max(num, len(df_lp_rounding))
+					if heuristic == 'lr_rounding':
+						df_lr_rounding = ['H' + str(i) + '-' + 'C' + str(j) + ' ' + str(round(hex_dict[i,j],2)) for (i,j) in hex_dict.keys()]
+						num = max(num, len(df_lr_rounding))
+					if heuristic == 'cr_rounding':
+						df_cr_rounding = ['H' + str(i) + '-' + 'C' + str(j) + ' ' + str(round(hex_dict[i,j],2)) for (i,j) in hex_dict.keys()]
+						num = max(num, len(df_cr_rounding))
+				
+				heuristic_type = 'water_filling'
+				heuristics = ['water_filling_greedy', 'water_filling_mip']
+				
+				for heuristic in heuristics:
+					hex_dict = read_heuristic_solution_heat_exchanges(test_set,test_id,heuristic_type,heuristic)
+					
+					if heuristic == 'water_filling_greedy':
+						df_wf_greedy = ['H' + str(i) + '-' + 'C' + str(j) + ' ' + str(round(hex_dict[i,j],2)) for (i,j) in hex_dict.keys()]
+						num = max(num, len(df_wf_greedy))
+					if heuristic == 'water_filling_mip':
+						df_wf_mip = ['H' + str(i) + '-' + 'C' + str(j) + ' ' + str(round(hex_dict[i,j],2)) for (i,j) in hex_dict.keys()]
+						num = max(num, len(df_wf_mip))
+				
+				heuristic_type = 'greedy_packing'
+				heuristics = ['largest_heat_match_greedy', 'largest_fraction_match', 'largest_heat_match_lp_based', 'shortest_stream']
+				
+				for heuristic in heuristics:
+					hex_dict = read_heuristic_solution_heat_exchanges(test_set,test_id,heuristic_type,heuristic)
+					
+					if heuristic == 'largest_heat_match_greedy':
+						df_lhmg = ['H' + str(i) + '-' + 'C' + str(j) + ' ' + str(round(hex_dict[i,j],2)) for (i,j) in hex_dict.keys()]
+						num = max(num, len(df_lhmg))
+					if heuristic == 'largest_fraction_match':
+						df_lfm = ['H' + str(i) + '-' + 'C' + str(j) + ' ' + str(round(hex_dict[i,j],2)) for (i,j) in hex_dict.keys()]
+						num = max(num, len(df_lfm))
+					if heuristic == 'largest_heat_match_lp_based':
+						df_lhmlp = ['H' + str(i) + '-' + 'C' + str(j) + ' ' + str(round(hex_dict[i,j],2)) for (i,j) in hex_dict.keys()]
+						num = max(num, len(df_lhmlp))
+					if heuristic == 'shortest_stream':
+						df_ss = ['H' + str(i) + '-' + 'C' + str(j) + ' ' + str(round(hex_dict[i,j],2)) for (i,j) in hex_dict.keys()]
+						num = max(num, len(df_ss))
+				
+				bal_df_hot_streams = []
+				bal_df_cold_streams = []
+				bal_df_cplex_transp = []
+				bal_df_gurobi_transp = []
+				bal_df_cplex_transs = []
+				bal_df_gurobi_transs = []
+				bal_df_lp_rounding = []
+				bal_df_lr_rounding = []
+				bal_df_cr_rounding = []
+				bal_df_wf_greedy = []
+				bal_df_wf_mip = []
+				bal_df_lhmg = []
+				bal_df_lfm = []
+				bal_df_lhmlp = []
+				bal_df_ss = []
+				
+				
+				for i in range(num):
+					
+					if i < len(df_hot_streams):
+						bal_df_hot_streams.append(df_hot_streams[i])
+						#bal_df_hot_streams.append(round(df_hot_streams[i],2))
+					else:
+						bal_df_hot_streams.append('')
+					
+					if i < len(df_cold_streams):
+						bal_df_cold_streams.append(df_cold_streams[i])
+						#bal_df_cold_streams.append(round(df_cold_streams[i],2))
+					else:
+						bal_df_cold_streams.append('')
+					
+					if i < len(df_cplex_transp):
+						bal_df_cplex_transp.append(df_cplex_transp[i])
+						#bal_df_cplex_transp.append(round(df_cplex_transp[i],2))
+					else:
+						bal_df_cplex_transp.append('')
+					
+					if i < len(df_gurobi_transp):
+						bal_df_gurobi_transp.append(df_gurobi_transp[i])
+						#bal_df_cplex_transp.append(round(df_gurobi_transp[i],2))
+					else:
+						bal_df_gurobi_transp.append('')
+					
+					if i < len(df_cplex_transs):
+						bal_df_cplex_transs.append(df_cplex_transs[i])
+						#bal_df_cplex_transs.append(round(df_cplex_transs[i],2))
+					else:
+						bal_df_cplex_transs.append('')
+					
+					if i < len(df_gurobi_transs):
+						bal_df_gurobi_transs.append(df_gurobi_transs[i])
+						#bal_df_gurobi_transs.append(round(df_gurobi_transs[i],2))
+					else:
+						bal_df_gurobi_transs.append('')
+					
+					if i < len(df_lp_rounding):
+						bal_df_lp_rounding.append(df_lp_rounding[i])
+						#bal_df_lp_rounding.append(round(df_lp_rounding[i],2))
+					else:
+						bal_df_lp_rounding.append('')
+					
+					if i < len(df_lr_rounding):
+						bal_df_lr_rounding.append(df_lr_rounding[i])
+						#bal_df_lr_rounding.append(round(df_lr_rounding[i],2))
+					else:
+						bal_df_lr_rounding.append('')
+					
+					if i < len(df_cr_rounding):
+						bal_df_cr_rounding.append(df_cr_rounding[i])
+						#bal_df_cr_rounding.append(round(df_cr_rounding[i],2))
+					else:
+						bal_df_cr_rounding.append('')
+					
+					if i < len(df_wf_greedy):
+						bal_df_wf_greedy.append(df_wf_greedy[i])
+						#bal_df_wf_greedy.append(round(df_wf_greedy[i],2))
+					else:
+						bal_df_wf_greedy.append('')
+					
+					if i < len(df_wf_mip):
+						bal_df_wf_mip.append(df_wf_mip[i])
+						#bal_df_wf_mip.append(round(df_wf_mip[i],2))
+					else:
+						bal_df_wf_mip.append('')
+					
+					if i < len(df_lhmg):
+						bal_df_lhmg.append(df_lhmg[i])
+						#bal_df_lhmg.append(round(df_lhmg[i],2))
+					else:
+						bal_df_lhmg.append('')
+					
+					if i < len(df_lfm):
+						bal_df_lfm.append(df_lfm[i])
+						#bal_df_lfm.append(round(df_lfm[i],2))
+					else:
+						bal_df_lfm.append('')
+					
+					if i < len(df_lhmlp):
+						bal_df_lhmlp.append(df_lhmlp[i])
+						#bal_df_lhmlp.append(round(df_lhmlp[i],2))
+					else:
+						bal_df_lhmlp.append('')
+					
+					if i < len(df_ss):
+						bal_df_ss.append(df_ss[i])
+						#bal_df_ss.append(round(df_ss[i],2))
+					else:
+						bal_df_ss.append('')
+						
+				
+				
+				### WRITING EXCEL FILES
+				
+				writer = pd.ExcelWriter('data/solution_tables/spreadsheets/' + test_set + '/' + test_id + '.xlsx', engine='xlsxwriter')
+				
+				df = pd.DataFrame({'Hot Streams': bal_df_hot_streams,
+					'Cold Streams': bal_df_cold_streams,
+					'CPLEX Transp': bal_df_cplex_transp,
+					'Gurobi Transp': bal_df_gurobi_transp,
+					'CPLEX Transsh': bal_df_cplex_transs,
+					'Gurobi Transsh': bal_df_gurobi_transs,
+					'FLPR': bal_df_lp_rounding,
+					'LRR': bal_df_lr_rounding,
+					'CRR': bal_df_cr_rounding,
+					'WFG': bal_df_wf_greedy,
+					'WFM': bal_df_wf_mip,
+					'LHM': bal_df_lhmg,
+					'LFM': bal_df_lfm,
+					'LHM-LP': bal_df_lhmlp,
+					'SS': bal_df_ss,
+					})
+				
+				cols = df.columns.tolist()
+				cols = [cols[7]] + [cols[3]] + [cols[1]] + [cols[6]] + [cols[0]] + [cols[5]] + [cols[4]] + [cols[11]] + [cols[2]] + [cols[14]] + [cols[13]] + [cols[9]] + [cols[8]] + [cols[10]] + [cols[12]]
+				df = df[cols]
+				
+				df.to_excel(writer, sheet_name = 'Solutions')
+				
+				writer.sheets['Solutions'].set_column('B:P', 13, None)
+				
+				writer.save()
+				
+				### END WRITING EXCEL FILES
+				
+				#### WRITING LATEX FILES
+				
+				#solutions_file_name = 'data/solution_tables/latex/' + test_id + '.tex'
+				
+				#f = open(solutions_file_name,'w')
+				
+				#write_begin_table(f)
+				#write_script_size(f)
+				#write_begin_adjustbox(f)
+				#write_begin_non_bordered_tabular(f,12) # there are 6 columns
+				#write_hline(f)
+				
+				#tid = multicolumn_element_both_borders( bold_element('Test Case: '+ test_id), 12)
+				#tid_line = [tid]
+				#write_line(f, tid_line)
+				#write_hline(f)
+				
+				#streams = multicolumn_element_both_borders( bold_element('Streams'), 2) 
+				#rr = multicolumn_element_both_borders( bold_element('Relaxation Rounding'), 3) 
+				#wf = multicolumn_element( bold_element('Water Filling'), 2 ) 
+				#gp = multicolumn_element( bold_element('Greedy Packing'), 4 ) 
+				#cplex = multirow_element( bold_element('CPLEX'), 2)
+				#method_line = [streams, rr, wf, gp, cplex]
+				#write_line(f, method_line)
+				##write_hline(f)
+				
+				#hot = bold_element('Hot')
+				#cold = bold_element('Cold')
+				#lpr = multicolumn_element_left_border( bold_element('FLPR'), 1 )
+				#lrr = bold_element('LRR')
+				#crr = multicolumn_element( bold_element('CRR'), 1 )
+				#wfg = bold_element('WFG')
+				#wfm = multicolumn_element( bold_element('WFM'), 1 )
+				#lhmg = bold_element('LHM')
+				#lfm = bold_element('LFM')
+				#lhmlp = bold_element('LHM-LP')
+				#ss = multicolumn_element( bold_element('SS'), 1 )
+				#label_line = [hot, cold, lpr, lrr, crr, wfg, wfm, lhmg, lfm, lhmlp, ss, '']
+				#write_line(f, label_line)
+				#write_hline(f)
+				
+				#for i in range(num):
+					#line = []
+					#line.append(bal_df_hot_streams[i])
+					#line.append(bal_df_cold_streams[i])
+					#line.append(bal_df_cplex_transs[i])
+					#line.append(bal_df_lp_rounding[i])
+					#line.append(bal_df_lr_rounding[i])
+					#line.append(bal_df_cr_rounding[i])
+					#line.append(bal_df_wf_greedy[i])
+					#line.append(bal_df_wf_mip[i])
+					#line.append(bal_df_lhmg[i])
+					#line.append(bal_df_lfm[i])
+					#line.append(bal_df_lhmlp[i])
+					#line.append(bal_df_ss[i])
+					
+					#write_line(f, line)
+				
+				
+				#write_hline(f)
+				
+				#write_end_tabular(f)
+				#write_end_adjustbox(f)
+				#write_vspace(f,'-0.2cm')
+				#write_caption(f,'Instance ' + test_id + ' heat exchanges.')
+				#write_label(f,'Table:Solution_' + test_id)
+				#write_end_table(f)
+				#f.close()
+				
+				#### END WRITING LATEX FILES
+
+
+
+
+
+
+
+def get_transportation_mip_results():
+
+	test_sets = ['furman_sahinidis', 'chen_grossmann_miller', 'grossmann_random']
+	models = ['transportation', 'reduced_transportation']
+	results = []
+	
+	for test_set in test_sets:
+	
+		for model in models:
+		
+			sol_files_path = 'data/mip_solutions/'+test_set+'/'+model+'/'
+			sol_files = listdir(sol_files_path) 
+		
+			for sol_file in sol_files :
+				
+				if '.log' not in sol_file:
+				
+					if test_set in ['furman_sahinidis', 'chen_grossmann_miller']:
+						test_id = sol_file.replace('.sol','').split('_', 1)[0]
+						solver = sol_file.replace('.sol','').split('_', 1)[1]
+					
+					if test_set in ['grossmann_random']:
+						test_id = sol_file.replace('.sol','').split('_', 2)[0] + '_' + sol_file.replace('.sol','').split('_', 2)[1]
+						solver = sol_file.replace('.sol','').split('_', 2)[2]
+					
+					stats = read_mip_solution(test_set,test_id,solver,model)
+					
+					results.append((test_set, test_id, solver, model, stats))
+					
+	test_set = 'furman_sahinidis'
+	model = 'furman_sahinidis_paper'
+	results_path = 'data/mip_solutions/'+test_set+'/'+model+'/'
+	
+	solver = 'cplex'
+	
+	furman_sahinidis_results = read_furman_sahinidis_paper_mip_results(results_path, solver)
+		
+	for (test_id, stats) in furman_sahinidis_results:
+		results.append((test_set, test_id, solver, model, stats))
+					
+	return results
+
+
+
+def generate_transportation_models_comparison_table():
+	
+	mip_results = get_transportation_mip_results()
+	
+	file_name = 'data/tex_tables/transportation_models_comparison.tex'
+	path = ''
+	f=open(path+file_name,'w')
+	
+	# WRITING THE FIRST LINES OF THE TABLE
+	
+	write_begin_table(f)
+	write_script_size(f)
+	write_begin_adjustbox(f)
+	write_begin_non_bordered_tabular(f,13) # there are 7 columns
+	write_hline(f)
+	
+	tid = multirow_element( bold_element('Test Case'), 2)
+	cplex_transportation = multicolumn_element_both_borders( bold_element('CPLEX Transportation'), 3 ) 
+	cplex_reduced = multicolumn_element( bold_element('CPLEX Reduced Transportation'), 3 ) 
+	gurobi_transportation = multicolumn_element( bold_element('Gurobi Transportation'), 3 )
+	gurobi_reduced = multicolumn_element( bold_element('Gurobi Reduced Transportation'), 3 )
+	solver_line = [tid, cplex_transportation, cplex_reduced, gurobi_transportation, gurobi_reduced]
+	write_line(f, solver_line)
+	write_cline(f,2,13)
+	
+	obj = multicolumn_element_left_border(bold_element('Value'),1)
+	cpu_time = bold_element('Time')
+	gap = bold_element('Gap')
+	label_line = ['', obj, cpu_time, gap, obj, cpu_time, gap, obj, cpu_time, gap, obj, cpu_time, gap]
+	write_line(f, label_line)
+	write_hline(f)
+	
+	test_sets = ['furman_sahinidis', 'chen_grossmann_miller', 'grossmann_random']
+	
+	for test_set in test_sets:
+		
+		if test_set == 'furman_sahinidis':
+			test_set_label = bold_element('Furman Sahinidis Test Set \\cite{furman:2004} (30min time limit)')
+			timeout = 1800
+		if test_set == 'chen_grossmann_miller':
+			test_set_label = bold_element('Chen Grossmann Miller Test Set \\cite{minlp,chen:2015} (2h time limit)')
+			timeout = 7200
+		if test_set == 'grossmann_random':
+			test_set_label = bold_element('Grossmann Random Test Set \\cite{grossmann:2017} (4h time limit)')
+			timeout = 14400
+		
+		test_set_line = [non_centered_multicolumn_element(test_set_label, 13)]
+		write_line(f, test_set_line)
+		
+		dat_files_path = 'data/mip_instances/' + test_set
+		test_ids = listdir(dat_files_path) 
+		test_ids.sort()
+	
+		for test_id in test_ids:
+			if '~' not in test_id:
+				
+				results_line = []
+			
+				test_id = test_id.replace('.dat','')
+				results_line.append(test_id.replace('_','\\_'))
+				
+				solvers = ['cplex', 'gurobi']
+				models = ['transportation', 'reduced_transportation']
+				
+				for solver in solvers:
+					for model in models:
+						for (tset, tid, solv, mod, stats) in mip_results:
+							if test_set == tset and test_id == tid and solv == solver and mod == model:
+								relative_gap = ((stats.upper_bound - stats.lower_bound) / stats.upper_bound)*100
+								# The CPU time is added with 2 decimal precision
+								if float(stats.elapsed_time) < timeout:
+									results_line.append(int(stats.upper_bound))
+									results_line.append(format(float(stats.elapsed_time),'.2f'))
+									results_line.append('')
+								else:
+									results_line.append(str(int(stats.upper_bound)))
+									#results_line.append(str(int(stats.upper_bound)) + '*')
+									results_line.append('*')
+									#results_line.append(int(float(stats.elapsed_time)))
+									if relative_gap >= 4:
+										results_line.append(str(int(relative_gap)) + '\\%')
+									else:
+										results_line.append('4' + '\\%')
+								
+				print(results_line)
+				write_line(f, results_line)
+			
+		write_hline(f)
+	
+	write_end_tabular(f)
+	write_end_adjustbox(f)
+	write_vspace(f,'-0.2cm')
+	write_caption(f,'Computational results using exact solvers CPLEX 12.6.3 and Gurobi 6.5.2 with relative gap 4\\%. The relative gap is (best incumbent - best lower bound) / best incumbent and  * indicates timeout. All exact method results are available online in \\cite{source_code}.')
+	write_label(f,'Table:Transportation_Models')	
+	write_end_table(f)
+	f.close()
+
+
+def get_large_scale_solutions():
+	
+	test_set = 'large_scale'
+	model = 'transshipment'
+	solver =  'cplex'
+	
+	sol_files_path = 'data/mip_solutions/'+test_set+'/'+model+'/'
+	sol_files = listdir(sol_files_path) 
+	
+	exact_results = []
+	
+	for sol_file in sol_files :
+		if '.log' not in sol_file:
+			test_id = sol_file.split('_' + solver)[0]
+			
+			stats = read_mip_solution(test_set, test_id, solver, model)
+			
+			exact_results.append((test_id, solver, model, stats))
+
+	test_set = 'large_scale'
+	methods = ['greedy_packing', 'water_filling', 'relaxation_rounding']
+	heuristic_results = []
+	
+	for method in methods:
+	
+		sol_files_path = 'data/heuristic_solutions/'+test_set+'/'+method+'/'
+		sol_files = listdir(sol_files_path) 
+		
+		for sol_file in sol_files :
+			
+			test_id = sol_file.replace('.sol','').split('_')[0] + '_' + sol_file.replace('.sol','').split('_')[1]
+			heuristic = sol_file.replace('.sol','').split('_')[2] + '_' + sol_file.replace('.sol','').split('_')[3]
+			if heuristic == 'water_filling':
+				heuristic += '_' + sol_file.replace('.sol','').split('_')[4]
+			
+			(upper_bound, elapsed_time) = read_heuristic_solution(test_set, test_id, method, heuristic)
+			heuristic_results.append((test_id, method, heuristic, upper_bound, elapsed_time))
+	
+	return (exact_results, heuristic_results)
+      
+def generate_large_scale_solutions_table():
+	
+	(exact_results, heuristic_results) = get_large_scale_solutions()
+	
+	test_set = 'large_scale'
+	file_name = 'data/tex_tables/large_scale.tex'
+	path = ''
+	f = open(path + file_name,'w')
+	
+	write_begin_table(f)
+	write_script_size(f)
+	write_begin_adjustbox(f)
+	write_begin_non_bordered_tabular(f,9) # there are 7 columns
+	write_hline(f)
+	
+	tid = multirow_element( bold_element('Test Case'), 3)
+	rr = multicolumn_element_both_borders( bold_element('Relaxation Rounding'), 2) 
+	wf = multicolumn_element( bold_element('Water Filling'), 2 ) 
+	gp = multicolumn_element( bold_element('Greedy Packing'), 2 ) 
+	cplex = multicolumn_element( bold_element('CPLEX'), 2)
+	
+	method_line = [tid, rr, wf, gp, cplex]
+	write_line(f, method_line)
+	
+	flpr = multicolumn_element_both_borders( bold_element('FLPR'), 2) 
+	wfg = multicolumn_element_both_borders( bold_element('WFG'), 2)
+	ss = multicolumn_element_both_borders( bold_element('SS'), 2)
+	transshipment = multicolumn_element_both_borders( bold_element('Transshipment'), 2) 
+	
+	solver_line = ['', flpr, wfg, ss, transshipment]
+	write_line(f, solver_line)
+	write_cline(f,2,9)
+	
+	time = bold_element('Time')
+	value = multicolumn_element_left_border(bold_element('Value'), 1)
+	
+	stats_line = ['', value, time, value, time, value, time, value, time]
+	write_line(f, stats_line)
+	write_hline(f)
+	
+	dat_files_path = 'data/mip_instances/' + test_set
+	test_ids = listdir(dat_files_path) 
+	test_ids.sort()
+	
+	for test_id in test_ids:
+		if '~' not in test_id:
+			results_line = []
+			
+			test_id = test_id.replace('.dat','')
+			results_line.append(test_id.replace('_','\\_'))
+			
+			method = 'relaxation_rounding'
+			heuristic = 'lp_rounding'
+			
+			for (tid, meth, heur, upper_bound, elapsed_time) in heuristic_results:
+				if test_id == tid and meth == method and heur == heuristic:
+					results_line.append(str(int(upper_bound)))
+					results_line.append(format(float(elapsed_time),'.2f'))
+			
+			method = 'water_filling'
+			heuristic = 'water_filling_greedy'
+			
+			for (tid, meth, heur, upper_bound, elapsed_time) in heuristic_results:
+				if test_id == tid and meth == method and heur == heuristic:
+					results_line.append(str(int(upper_bound)))
+					results_line.append(format(float(elapsed_time),'.2f'))
+			
+			method = 'greedy_packing'
+			heuristic = 'shortest_stream'
+			
+			for (tid, meth, heur, upper_bound, elapsed_time) in heuristic_results:
+				if test_id == tid and meth == method and heur == heuristic:
+					results_line.append(str(int(upper_bound)))
+					results_line.append(format(float(elapsed_time),'.2f'))
+			
+			solver = 'cplex'
+			model = 'transshipment'
+			timeout = 14400
+			
+			for (tid, solv, mod, stats) in exact_results:
+				if test_id == tid and solv == solver and mod == model:
+					
+					if float(stats.elapsed_time) < timeout:
+						results_line.append(int(stats.upper_bound))
+						results_line.append(format(float(stats.elapsed_time),'.2f'))
+					else:
+						results_line.append(str(int(stats.upper_bound)))
+						results_line.append('*')
+			
+			write_line(f, results_line)
+	write_hline(f)
+	
+	write_end_tabular(f)
+	write_end_adjustbox(f)
+	write_vspace(f,'-0.2cm')
+	write_caption(f,'Large-scale experiments.')
+	write_label(f,'Table:Large_Scale')
 	write_end_table(f)
 	f.close()

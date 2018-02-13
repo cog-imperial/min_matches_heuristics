@@ -1,0 +1,43 @@
+
+Gurobi 6.5.2 (linux64) logging started Thu Jan 25 20:43:03 2018
+
+Changed value of parameter LogFile to data/mip_solutions/furman_sahinidis/reduced_transportation/7sp1_gurobi.log
+   Prev: gurobi.log  Default: 
+Changed value of parameter Threads to 1
+   Prev: 0  Min: 0  Max: 1024  Default: 0
+Optimize a model with 65 rows, 332 columns and 977 nonzeros
+Coefficient statistics:
+  Matrix range    [1e+00, 6e+03]
+  Objective range [1e+00, 1e+00]
+  Bounds range    [1e+00, 1e+00]
+  RHS range       [1e+00, 5e+03]
+Found heuristic solution: objective 10
+Presolve removed 27 rows and 218 columns
+Presolve time: 0.00s
+Presolved: 38 rows, 114 columns, 312 nonzeros
+Variable types: 100 continuous, 14 integer (14 binary)
+
+Root relaxation: objective 5.006242e+00, 81 iterations, 0.00 seconds
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    5.00624    0    6   10.00000    5.00624  49.9%     -    0s
+H    0     0                       8.0000000    5.00624  37.4%     -    0s
+H    0     0                       7.0000000    5.00624  28.5%     -    0s
+     0     0    5.77265    0    4    7.00000    5.77265  17.5%     -    0s
+     0     0    6.00000    0    2    7.00000    6.00000  14.3%     -    0s
+     0     0     cutoff    0         7.00000    6.00001  14.3%     -    0s
+
+Cutting planes:
+  Gomory: 2
+  Cover: 2
+  Implied bound: 2
+  MIR: 1
+  Flow cover: 1
+
+Explored 0 nodes (161 simplex iterations) in 0.00 seconds
+Thread count was 1 (of 8 available processors)
+
+Optimal solution found (tolerance 4.00e-02)
+Best objective 7.000000000000e+00, best bound 7.000000000000e+00, gap 0.0%

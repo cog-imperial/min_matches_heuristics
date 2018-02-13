@@ -1,5 +1,6 @@
 from lib.instance_generation.chen_grossmann_miller_generator import generate_chen_grossmann_miller_instances
 from lib.instance_generation.grossmann_random_generator import generate_grossmann_random_instances
+from lib.instance_generation.large_scale_instance_generator import generate_large_scale_instances
 from lib.instance_generation.min_utility_cost_solver import solve_min_utility_cost
 from lib.exact_methods.exact_solver import solve_exactly
 from lib.heuristic_methods.heuristic_solver import solve_heuristically
@@ -13,6 +14,9 @@ from lib.io_modules.results_visualization import generate_upper_bounds_box_plot
 from lib.io_modules.results_visualization import generate_elapsed_times_box_plot
 from lib.io_modules.results_visualization import generate_line_chart
 from lib.io_modules.results_visualization import generate_bigM_comparison_table
+from lib.io_modules.results_visualization import generate_solutions_excel
+from lib.io_modules.results_visualization import generate_transportation_models_comparison_table
+from lib.io_modules.results_visualization import generate_large_scale_solutions_table
 
 
 # INSTANCE GENERATION
@@ -22,6 +26,9 @@ from lib.io_modules.results_visualization import generate_bigM_comparison_table
 
 #print('--Generation of grossmann_random instances')
 #generate_grossmann_random_instances()
+
+#print('--Generation of large scale instances')
+#generate_large_scale_instances()
 
 #print('--Minimum utility cost solving')
 #solve_min_utility_cost()
@@ -60,7 +67,7 @@ from lib.io_modules.results_visualization import generate_bigM_comparison_table
 #generate_line_chart()
 
 
-# RESULTS TABLE GENERATION (IN THE PAPER)
+# RESULTS TABLE GENERATION (CACE PAPER)
 
 #print('--Generating problem sizes table')
 #generate_problem_sizes_table()
@@ -77,9 +84,18 @@ from lib.io_modules.results_visualization import generate_bigM_comparison_table
 #print('--Generating bigM comparison table')
 #generate_bigM_comparison_table()
 
+#print('--Generation of transportation models comparison table')
+#generate_transportation_models_comparison_table()
 
-#####APPLICABLE ONLY IF THE CORRESPONDING FOLDERS ARE CREATED
-# RESULTS TABLE GENERATION (IN THE PRESENTATION)
+print('--Generation of an excel file with all solutions')
+generate_solutions_excel()
+
+#print('--Generation of large-scale solutions table')
+#generate_large_scale_solutions_table()
+
+
+#####THE CORRESPONDING FOLDERS NEED TO BE CREATED
+# RESULTS TABLE GENERATION (RA SYMPOSIUM PRESENTATION)
 
 #print('--Generating all heuristic results tables')
 #generate_all_exact_results_tables()
