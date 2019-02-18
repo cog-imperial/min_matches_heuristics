@@ -1,4 +1,7 @@
-DTmin 10.0
+Test case originally investigated by "Chen, Grossmann, Miller. Computers and Chemical Engineering 82, p. 68-83, 2015". 
+Retrieved from www.minlp.org. 
+ 
+ DTmin 10.0
 HS0 400.0 120.0 1.0
 HS1 340.0 120.0 2.0
 HS2 380.0 150.0 1.5
