@@ -6,7 +6,7 @@ Contact: `d.letsios@imperial.ac.uk`; `g.kouyialis14@imperial.ac.uk`; `r.misener@
 
 ## License
 
-Copyright [2019] [Dimitrios Letsios, Georgia Kouyialis, Ruth Misener]
+Copyright 2019 Dimitrios Letsios, Georgia Kouyialis, Ruth Misener.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
