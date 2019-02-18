@@ -1,4 +1,6 @@
-Cost=72790.0
+Test case originally investigated by "Chen, Grossmann, Miller. Computers and Chemical Engineering 82, p. 68-83, 2015". 
+Retrieved from www.minlp.org. 
+ Cost=72790.0
 n=12
 m=11
 k=20
