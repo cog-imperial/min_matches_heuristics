@@ -1,11 +1,31 @@
 # Exact and Heuristic Methods for the Minimum Number of Matches Problem in Heat Recovery Network Design
 
 Date: 11 September 2017  
-Authors: Dimitrios Letsios ([@dimletsios](https://github.com/dimletsios)), Georgia Kouyialis ([@georgiakouy](https://github.com/georgiakouy)), Ruth Misener  
+Authors: Dimitrios Letsios, Georgia Kouyialis, Ruth Misener  
 Contact: `d.letsios@imperial.ac.uk`; `g.kouyialis14@imperial.ac.uk`; `r.misener@imperial.ac.uk`
 
-Source code of the methods proposed in Dimitrios Letsios, Georgia Kouyialis, Ruth Misener, "Heuristics with Performance Guarantees for the Minimum
-Number of Matches Problem in Heat Recovery Network Design".
+## License
+
+Copyright [2019] [Dimitrios Letsios, Georgia Kouyialis, Ruth Misener]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+## Citing
+
+Please cite (i) data, (ii) algorithms, and / or (iii) source code retrieved from this repository using the following reference:
+- Dimitrios Letsios, Georgia Kouyialis, Ruth Misener. Heuristics with Performance Guarantees for the Minimum Number of Matches Problem in Heat Recovery Network Design. Computers and Chemical Engineering 113:57-85, 2018. 
+
+## Content
 
 This repository contains 1) a collection of benchmark instances of the general heat exchanger network synthesis problem, 2) a source code implementing and evaluating the performance of exact and heuristic methods for the minimum number of matches problem (using Python 2.7.6 and Pyomo 4.4.1), and 3) the obtained results after running the code on an Intel Core i7-4790 CPU 3.60 GHz with 15.6 GB RAM and 64-bit Ubuntu 14.04. Letsios, Kouyialis and Misener (2017) present a technical description of the implemented methods.
 
@@ -21,7 +41,8 @@ All input and output data files are located in directory `data`, all the require
 This repository contains a collection of 48 general heat exchanger network design problem instances. These instances are classified into three test sets: 
 1. Furman (2000) test set,
 2. Chen et al. (2015a, 2015b) test set,
-3. Grossmann (2017) test set.
+3. Grossmann (2017) test set,
+4. Randomly generated large-scale test set.
 
 The Furman (2000) instances are manually digitized from the engineering literature, the Chen et al. (2015a, 2015b) are existing instances in the literature, and the Grossmann (2017) instances are generated randomly with fixed seeds. Obtaining the Chen et al. (2015a, 2015b) and Grossmann (2017) instances requires parsing existing `.gms` files and random selections in the latter case. All minimum utility cost instances as well as the corresponding `.gms` files are stored in the directory `data/original_instances`.
 
